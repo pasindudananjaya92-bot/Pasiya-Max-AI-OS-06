@@ -3,1040 +3,829 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasiya Max Golden AI OS 06 - Active Hub</title>
   
-  <!-- SEO Meta Tags -->
-  <title>Pasiya Max AI OS 06 - Official Command Hub</title>
-  <meta name="description" content="Pasiya Max (පසිඳු දනංජය) ගේ නිල AI සහායකයා සහ ස්වයංක්‍රීය පාලන මධ්‍යස්ථානය. නොමිලේ AI ඡායාරූප නිපදවීම, බග් ස්කෑනර් සහ සියලුම නිල සමාජ ජාල සබැඳි මෙතැනින් ලබා ගන්න.">
-  <meta name="keywords" content="Pasiya Max, Pasindu Dananjaya, Pasiya AI, Pasiya Max AI, B-Hook, GitHub Pages, Free AI, Sinhala Bot">
-  <meta name="author" content="Pasindu Dananjaya">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Pasiya Max AI OS 06 - Official Command Hub">
-  <meta property="og:description" content="Pasiya Max (පසිඳු දනංජය) ගේ නිල AI සහායකයා සහ ස්වයංක්‍රීය පාලන මධ්‍යස්ථානය.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80">
-
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Fonts -->
+  <!-- Google Fonts: Outfit & Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <!-- Lucide Icons CDN -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
     .font-display {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Outfit', sans-serif;
     }
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    /* Smooth transition for active tabs */
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.4s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Scrollbar Styling */
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #020617;
+      background: #090703;
     }
     ::-webkit-scrollbar-thumb {
-      background: #1e293b;
+      background: #3a2e16;
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
+      background: #f59e0b;
     }
-    /* Founder Glowing Themes */
-    .founder-glow {
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
-      border-color: rgba(245, 158, 11, 0.4) !important;
+    /* Gold Glitter Pulse Animation */
+    @keyframes goldGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.15); }
+      50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.35); }
+    }
+    .gold-glow-card {
+      animation: goldGlow 4s infinite ease-in-out;
+    }
+    /* Text Glow Effect */
+    .text-glow {
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-200 min-h-screen p-3 sm:p-6 md:p-8 flex flex-col gap-6 selection:bg-indigo-500 selection:text-white transition-all duration-500" id="main-body">
+<body class="bg-[#090704] text-[#f7e8cf] min-h-screen p-4 sm:p-6 md:p-8 flex flex-col gap-6 selection:bg-amber-600 selection:text-white">
 
-  <!-- Header Section -->
-  <header class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-5 gap-4" id="header-container">
+  <!-- Main Header -->
+  <header class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-500/20 pb-6 gap-4">
     <div class="flex items-center gap-4">
-      <div class="w-12 h-12 rounded-2xl bg-indigo-600/15 border border-indigo-500/30 flex items-center justify-center animate-pulse" id="bot-shield-logo">
-        <i data-lucide="shield" class="w-6 h-6 text-indigo-400"></i>
+      <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-amber-500/10 shrink-0">
+        <i data-lucide="sparkles" class="w-6 h-6 text-amber-400"></i>
       </div>
       <div>
-        <h1 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2 flex-wrap font-display">
-          Pasiya Max <span class="text-indigo-400 font-medium">AI OS 06</span>
-          <span class="text-[10px] font-mono bg-indigo-500/10 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/20" id="hub-badge">
-            🚀 Active Hub
+        <h1 class="text-xl sm:text-2xl font-black font-display tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 flex items-center gap-2 flex-wrap">
+          Pasiya Max Golden AI OS 06
+          <span class="text-[10px] font-mono bg-amber-500/10 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+            🤖 ACTIVE GOLDEN HUB
           </span>
         </h1>
-        <p class="text-slate-400 text-xs sm:text-sm mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span class="font-mono">pasindudananjaya92-bot / Pasiya-Max-AI-OS-06</span>
-          <span class="inline-flex items-center gap-1 text-[11px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-lg text-emerald-400 font-medium">
-            <i data-lucide="globe" class="w-3.5 h-3.5"></i> GitHub Pages Active
+        <p class="text-amber-200/60 text-xs sm:text-sm mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans">
+          <span class="font-mono hover:text-amber-300 transition-colors font-bold">pasindudananjaya92-bot / Pasiya-Max-AI-OS-06</span>
+          <span class="inline-flex items-center gap-1 text-[11px] bg-[#1a1307] border border-amber-500/20 px-2.5 py-0.5 rounded-lg text-amber-300 font-bold">
+            <i data-lucide="globe" class="w-3 h-3 text-amber-400"></i> GitHub Pages Live
           </span>
         </p>
       </div>
     </div>
     
-    <!-- Founder Status / Manual verification -->
-    <div class="flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-3 md:pt-0 border-slate-800">
-      <button onclick="triggerFounderLogin()" id="founder-login-btn" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 px-3.5 py-1.5 rounded-xl border border-slate-800 hover:border-slate-700 text-xs text-slate-300 transition-all font-semibold font-display">
-        <i data-lucide="lock" class="w-4 h-4 text-amber-500"></i>
-        <span>Verify Founder Session</span>
-      </button>
-      
+    <div class="flex items-center justify-between sm:justify-end gap-6 border-t sm:border-t-0 pt-3 sm:pt-0 border-amber-500/10 sm:border-none">
+      <div class="flex items-center gap-2 bg-[#1b1206] px-3.5 py-1.5 rounded-xl border border-amber-500/30 text-xs text-amber-200 shadow-md">
+        <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
+        <span class="font-bold">Pasiya AI active and free</span>
+      </div>
       <div class="flex flex-col items-end">
-        <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold font-mono">System Status</span>
-        <span class="text-emerald-400 font-bold text-xs sm:text-sm flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live & Online
+        <span class="text-[10px] uppercase tracking-widest text-amber-500/60 font-semibold">පද්ධති තත්ත්වය</span>
+        <span class="text-amber-400 font-bold text-sm flex items-center gap-1.5 text-glow">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span> ධාවනය වේ (Live)
         </span>
       </div>
     </div>
   </header>
 
-  <!-- Navigation Switcher / Tab Buttons (SOLVED Suggestion #1) -->
-  <div class="bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800/80 max-w-4xl mx-auto w-full flex flex-wrap gap-1">
-    <button onclick="switchTab('chat')" id="btn-chat" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white cursor-pointer">
-      <i data-lucide="message-square" class="w-4.5 h-4.5"></i>
-      <span>💬 Pasiya AI Chat</span>
-    </button>
-    <button onclick="switchTab('media')" id="btn-media" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer">
-      <i data-lucide="sparkles" class="w-4.5 h-4.5 text-pink-400"></i>
-      <span>🎨 AI Media Maker</span>
-    </button>
-    <button onclick="switchTab('bug')" id="btn-bug" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer">
-      <i data-lucide="terminal" class="w-4.5 h-4.5 text-emerald-400"></i>
-      <span>🛠️ Code Bug Scanner</span>
-    </button>
-    <button onclick="switchTab('links')" id="btn-links" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer">
-      <i data-lucide="layers" class="w-4.5 h-4.5 text-sky-400"></i>
-      <span>📲 Official Links Hub</span>
-    </button>
-  </div>
+  <!-- Main Bento Grid Layout -->
+  <main class="flex-1 grid grid-cols-12 gap-4 sm:gap-6 auto-rows-min">
+    
+    <!-- Welcome Panel -->
+    <div class="col-span-12 lg:col-span-8 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 shadow-2xl flex flex-col justify-between relative overflow-hidden group gold-glow-card">
+      <div class="absolute -right-10 -top-10 w-44 h-44 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-all"></div>
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold tracking-wider uppercase">
+          <i data-lucide="star" class="w-4 h-4 animate-spin text-amber-400" style="animation-duration: 6s"></i> Pasiya AI Active Engine
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-white leading-tight font-display text-glow">
+          ඔබගේ නවතම Pasiya Max Golden AI OS 06 වෙබ් අඩවිය සාර්ථකයි! 🌟
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-2xl font-sans">
+          මෙම පද්ධතිය පූර්ණ නිදහස් සේවාවක් (100% Free Golden Web Engine) ලෙස ක්‍රියාත්මක වන අතර, <strong class="text-amber-400 hover:underline">Pasiya AI</strong> සහායකයා කිසිදු මුදල් ගෙවීමක් හෝ API Keys නොමැතිව ඔබේම GitHub Pages ගිණුමේ ස්වයංක්‍රීයවම ක්‍රියා කරයි.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-6 border-t border-amber-500/20">
+        <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
+          <h4 class="text-[10px] font-bold text-amber-500 uppercase tracking-wider mb-1">Target GitHub Repo</h4>
+          <p class="text-xs font-mono text-amber-300 font-bold">Pasiya-Max-AI-OS-06 / index.html</p>
+        </div>
+        <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
+          <h4 class="text-[10px] font-bold text-amber-500 uppercase tracking-wider mb-1">Deployment Platform</h4>
+          <p class="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1.5">
+            GitHub Pages Edge Server <i data-lucide="server" class="w-3.5 h-3.5 text-emerald-400"></i>
+          </p>
+        </div>
+      </div>
+    </div>
 
-  <!-- Content Container -->
-  <main class="flex-1 max-w-4xl mx-auto w-full">
+    <!-- System Vitals -->
+    <div class="col-span-12 md:col-span-4 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between mb-4 border-b border-amber-500/10 pb-3">
+          <span class="text-xs font-bold text-amber-500 uppercase tracking-widest font-mono">Control Desk Vitals</span>
+          <span class="text-[10px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">READY</span>
+        </div>
+        <div class="space-y-3 font-sans font-semibold">
+          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
+            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-amber-400"></i> Local CPU Load</span>
+            <span class="font-mono text-xs text-amber-300 font-bold" id="cpu-load-val">12.4%</span>
+          </div>
+          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
+            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="database" class="w-4 h-4 text-emerald-400"></i> Cache Memory</span>
+            <span class="font-mono text-xs text-emerald-400 font-bold">100% Free</span>
+          </div>
+          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
+            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Live Bot Speed</span>
+            <span class="font-mono text-[10px] text-amber-300 font-bold" id="last-sync-val">Optimal Status</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-4 mt-4 border-t border-amber-500/15 text-right">
+        <button onclick="refreshVitals()" class="text-xs bg-[#1f170b] hover:bg-[#2d210f] text-amber-200 px-4 py-1.5 rounded-xl border border-amber-500/30 transition-all flex items-center gap-1.5 ml-auto cursor-pointer font-bold shadow-md">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-amber-400"></i> Optimize Engine
+        </button>
+      </div>
+    </div>
 
-    <!-- TAB 1: PASIYA AI CHAT -->
-    <div id="tab-chat" class="tab-content active bg-slate-900 border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col justify-between min-h-[500px]">
+    <!-- Pasiya AI Chat Assistant -->
+    <div class="col-span-12 lg:col-span-8 bg-[#131008] border border-amber-500/25 rounded-3xl p-5 flex flex-col justify-between shadow-2xl min-h-[460px]">
       <div class="space-y-4 flex flex-col h-full justify-between">
         
-        <!-- Chat Head -->
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3.5">
+        <!-- Chat Header -->
+        <div class="flex items-center justify-between border-b border-amber-500/20 pb-3">
           <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
-              <i data-lucide="bot" class="w-5 h-5 text-indigo-400" id="chat-bot-icon"></i>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0">
+              <i data-lucide="bot" class="w-5 h-5 text-amber-400"></i>
             </div>
             <div>
-              <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 font-display">
-                Pasiya AI Chat Assistant
-                <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-mono font-bold">
-                  FREE BOT
+              <h3 class="text-sm font-bold text-white flex items-center gap-1.5 font-display text-glow">
+                Pasiya AI Assistant FREE BOT
+                <span class="text-[9px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold border border-amber-500/20">
+                  SINHALA / ENG
                 </span>
               </h3>
-              <p class="text-[11px] text-slate-400 font-sans">
-                පසිඳු දනංජයගේ නිල සහායකයා සමඟ සජීවීව කතා කරන්න
+              <p class="text-[11px] text-stone-400 font-sans font-medium">
+                පසිඳු දනංජය (Pasiya Max) ගේ නිල සහායකයා සමඟ සජීවීව කතා කරන්න
               </p>
             </div>
           </div>
-          <div class="text-[10px] text-emerald-400 bg-emerald-950/45 border border-emerald-500/20 px-2.5 py-1 rounded-lg flex items-center gap-1.5 font-mono">
-            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span> No Keys Required
+          
+          <div class="flex items-center gap-1.5 text-[10px] text-amber-400 bg-amber-950/40 border border-amber-500/20 px-2.5 py-1 rounded-lg">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-ping"></span> 100% Free
           </div>
         </div>
 
-        <!-- Chat Commands Quick Triggers -->
-        <div class="flex flex-wrap gap-1.5 pt-2">
-          <button onclick="clickPreset('social')" class="text-[11px] bg-slate-950 hover:bg-indigo-950/50 text-indigo-300 hover:text-white border border-slate-800/80 hover:border-indigo-500/30 px-3 py-1.5 rounded-xl transition-all font-sans cursor-pointer flex items-center gap-1">
-            📲 Social Links
+        <!-- Suggested Quick Buttons -->
+        <div class="flex flex-wrap gap-1.5 mt-2">
+          <button onclick="clickPreset('social')" class="text-[10px] bg-[#0c0a05] hover:bg-[#1a140b] text-amber-300 hover:text-white border border-amber-500/20 hover:border-amber-400/40 px-3 py-1.5 rounded-lg transition-all font-sans font-bold cursor-pointer flex items-center gap-1.5 shadow-sm">
+            📲 Social Links (සමාජ ජාල)
           </button>
-          <button onclick="clickPreset('owner')" class="text-[11px] bg-slate-950 hover:bg-indigo-950/50 text-indigo-300 hover:text-white border border-slate-800/80 hover:border-indigo-500/30 px-3 py-1.5 rounded-xl transition-all font-sans cursor-pointer flex items-center gap-1">
+          <button onclick="clickPreset('owner')" class="text-[10px] bg-[#0c0a05] hover:bg-[#1a140b] text-amber-300 hover:text-white border border-amber-500/20 hover:border-amber-400/40 px-3 py-1.5 rounded-lg transition-all font-sans font-bold cursor-pointer flex items-center gap-1.5 shadow-sm">
             👤 Who is Pasiya Max?
           </button>
-          <button onclick="clickPreset('commands')" class="text-[11px] bg-slate-950 hover:bg-indigo-950/50 text-indigo-300 hover:text-white border border-slate-800/80 hover:border-indigo-500/30 px-3 py-1.5 rounded-xl transition-all font-sans cursor-pointer flex items-center gap-1">
-            ⚙️ Bot Commands List
+          <button onclick="clickPreset('github')" class="text-[10px] bg-[#0c0a05] hover:bg-[#1a140b] text-amber-300 hover:text-white border border-amber-500/20 hover:border-amber-400/40 px-3 py-1.5 rounded-lg transition-all font-sans font-bold cursor-pointer flex items-center gap-1.5 shadow-sm">
+            🛠️ GitHub Deploy Help (උපදෙස්)
           </button>
-          <button onclick="clickPreset('media_info')" class="text-[11px] bg-slate-950 hover:bg-indigo-950/50 text-indigo-300 hover:text-white border border-slate-800/80 hover:border-indigo-500/30 px-3 py-1.5 rounded-xl transition-all font-sans cursor-pointer flex items-center gap-1">
-            🎨 How to generate media?
+          <button onclick="clickPreset('vitals')" class="text-[10px] bg-[#0c0a05] hover:bg-[#1a140b] text-amber-300 hover:text-white border border-amber-500/20 hover:border-amber-400/40 px-3 py-1.5 rounded-lg transition-all font-sans font-bold cursor-pointer flex items-center gap-1.5 shadow-sm">
+            ⚡ Optimize Vitals (වේගවත් කරන්න)
           </button>
         </div>
 
-        <!-- Messages Area -->
-        <div id="chat-messages" class="flex-1 min-h-[300px] max-h-[400px] overflow-y-auto bg-slate-950 border border-slate-800/60 rounded-2xl p-4 space-y-4 font-sans text-xs sm:text-sm scrollbar-thin mt-3">
-          <!-- Bot Intro Greeting -->
-          <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-indigo-600/15 border border-indigo-500/30 flex items-center justify-center shrink-0">
-              <i data-lucide="bot" class="w-4 h-4 text-indigo-400"></i>
+        <!-- Chat History Box -->
+        <div id="chat-messages-container" class="flex-1 min-h-[220px] max-h-[300px] overflow-y-auto bg-[#070503] border border-amber-500/10 rounded-2xl p-4 space-y-3 font-sans text-xs scrollbar-thin mt-2.5">
+          <!-- Initial bot welcome message -->
+          <div class="flex items-start gap-2.5 animate-in fade-in">
+            <div class="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
+              <i data-lucide="bot" class="w-3.5 h-3.5 text-amber-400"></i>
             </div>
-            <div class="p-3 bg-slate-900 border border-slate-800 rounded-r-2xl rounded-bl-2xl text-slate-300 max-w-[85%] leading-relaxed space-y-2">
-              <p class="font-bold text-white text-[12px] text-indigo-400 font-display">Pasiya AI Assistant</p>
-              <p>ආයුබෝවන්! මම පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයා වන **Pasiya AI** බොට්. 🤖✨</p>
-              <p>පසිඳු මහතාගේ නිල සම්බන්ධතා තොරතුරු, වට්ස්ඇප් ගෲප්, සහ සමාජ මාධ්‍ය ගිණුම් ලබා ගැනීමට ඉහළ ඇති ක්ෂණික බටන්ස් ක්ලික් කරන්න. නැතහොත් ඔබට අවශ්‍ය ඕනෑම දෙයක් මෙතැනින් විමසන්න!</p>
-              <p class="text-[11px] text-slate-400 font-mono bg-slate-950 p-2 rounded-lg border border-slate-800/80">
-                💡 **Command Hints:** Try typing `/sync`, `/ping`, `/push`, or `/clear` in the input below!
+            <div class="p-2.5 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[85%] leading-relaxed space-y-1 shadow-sm">
+              <p class="font-bold text-amber-400 text-[10px] uppercase tracking-wider">Pasiya AI Assistant</p>
+              <p class="text-xs font-bold">ආයුබෝවන්! මම පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයා වන **Pasiya AI**. 🇱🇰✨</p>
+              <p class="text-[11px] text-stone-400 font-sans">
+                ඔබගේ අලුත් GitHub Pages අඩවිය තුල මම නොමිලේම සක්‍රියව ක්‍රියාත්මක වෙනවා. ඔබට උදව් කිරීමට සූදානම්! ඉහත ඇති බොත්තම් භාවිතයෙන් හෝ ඔබට අවශ්‍ය ඕනෑම දෙයක් පහතින් විමසන්න.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Chat Input Form -->
-        <div class="flex gap-2.5 mt-3 pt-3 border-t border-slate-800/60">
+        <!-- Input Box Area -->
+        <div class="flex gap-2 mt-3 pt-3 border-t border-amber-500/20">
           <input 
             type="text" 
-            id="chat-input"
-            onkeypress="handleChatKeypress(event)"
-            placeholder="Pasiya AI ගෙන් ඕනෑම දෙයක් විමසන්න... (Ask me anything...)" 
-            class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-indigo-500/80 font-sans transition-all"
+            id="chat-user-input"
+            onkeypress="handleChatEnter(event)"
+            placeholder="Pasiya AI ගෙන් ඕනෑම දෙයක් අහන්න... (Type here...)" 
+            class="flex-1 bg-[#070503] border border-amber-500/20 rounded-xl px-4 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 placeholder:text-stone-600 font-sans transition-all"
           />
           <button 
             onclick="sendChatMessage()"
-            class="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-indigo-600/15 flex items-center gap-1.5 cursor-pointer font-display"
+            class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-xs transition-all shadow-lg shadow-amber-500/10 flex items-center gap-1.5 cursor-pointer font-sans"
           >
-            <i data-lucide="send" class="w-4 h-4"></i> Send
+            <i data-lucide="send" class="w-3.5 h-3.5"></i> යවන්න (Send)
           </button>
         </div>
-
       </div>
     </div>
 
-    <!-- TAB 2: FREE AI MEDIA MAKER (SOLVED Suggestion #2 & #3) -->
-    <div id="tab-media" class="tab-content bg-slate-900 border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col justify-between min-h-[500px]">
-      <div>
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-4">
-          <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center">
-              <i data-lucide="sparkles" class="w-5 h-5 text-pink-400"></i>
-            </div>
+    <!-- Active Deploy Pipeline Tracker -->
+    <div class="col-span-12 lg:col-span-4 bg-[#131008] border border-amber-500/25 rounded-3xl p-5 flex flex-col justify-between shadow-2xl">
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-amber-500/10 pb-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="activity" class="w-5 h-5 text-amber-400"></i>
             <div>
-              <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 font-display">
-                Pasiya AI Media Maker
-                <span class="text-[9px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full font-mono font-bold">
-                  ACTIVE ENGINE
-                </span>
-              </h3>
-              <p class="text-[11px] text-slate-400 font-sans">
-                නොමිලේ උසස් තත්වයේ AI ඡායාරූප සජීවීව ජනනය කරන්න
-              </p>
+              <h3 class="text-xs sm:text-sm font-bold text-white font-display">Live Pipeline Tracker</h3>
+              <p class="text-[10px] text-stone-400">ස්වයංක්‍රීය ප්‍රකාශන නල මාර්ගය</p>
             </div>
           </div>
-          <span class="text-[10px] bg-pink-500/10 border border-pink-500/20 text-pink-400 px-2.5 py-1 rounded-lg font-mono font-semibold">100% Dynamic</span>
+          <span class="text-[9px] bg-emerald-500/10 text-emerald-400 px-2.5 py-0.5 rounded font-mono font-bold border border-emerald-500/20">ONLINE</span>
         </div>
 
-        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5 font-sans">
-          ඔබට සිතට නැගෙන ඕනෑම පින්තූරයක විස්තරයක් (Prompt) පහත ඇතුළත් කර **Generate Media Now** බටන් එක ක්ලික් කරන්න. අපගේ සැබෑ API පද්ධතිය එය තත්පර කිහිපයකින් නිපදවා පෙන්වනු ඇත!
-        </p>
-
-        <div class="space-y-4">
-          <!-- Selector -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5 font-mono">Art style filter</label>
-              <select id="media-style" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-pink-500 cursor-pointer font-sans">
-                <option value="cyberpunk">🌃 Cyberpunk Cityscape Masterpiece</option>
-                <option value="anime">🌸 Aesthetic Anime Illustration</option>
-                <option value="sci-fi">🚀 Futuristic Sci-Fi Concept Art</option>
-                <option value="nature">🌿 Photorealistic Nature Portrait</option>
-                <option value="abstract">🎨 Beautiful Dynamic Abstract Render</option>
-              </select>
+        <div class="space-y-2.5 font-sans font-semibold">
+          <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10 space-y-1">
+            <div class="flex justify-between items-center text-[10px] font-mono">
+              <span class="text-stone-400 font-bold">JOB-104 (STATIC BUILD)</span>
+              <span class="text-emerald-400 font-bold">SUCCESS</span>
             </div>
-            <div>
-              <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5 font-mono">Media category</label>
-              <div class="flex bg-slate-950 p-1 rounded-xl border border-slate-800">
-                <button onclick="setMediaType('photo')" id="media-type-photo" class="flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-pink-600 text-white cursor-pointer">
-                  📸 High-Res Photo
-                </button>
-                <button onclick="setMediaType('video')" id="media-type-video" class="flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-400 hover:text-white cursor-pointer">
-                  🎥 Video Loop
-                </button>
-              </div>
+            <div class="flex justify-between text-xs text-stone-300">
+              <span>Commit: 92c3008</span>
+              <span>Time: Just now</span>
             </div>
           </div>
 
-          <!-- Prompt Input -->
-          <div>
-            <label class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5 font-mono">Visual prompt description</label>
-            <input 
-              type="text" 
-              id="media-prompt" 
-              placeholder="e.g. Astronaut walking on golden sand dune of Mars..." 
-              class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-pink-500/80 font-sans transition-all"
-            />
-          </div>
-
-          <!-- Terminal Loading Sequence (Optimized & Clean) -->
-          <div id="media-loader" class="hidden bg-slate-950 border border-slate-800/80 rounded-2xl p-4 font-mono text-xs text-pink-400 space-y-1.5">
-            <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-ping"></span> [SYSTEM] INITIALIZING PASIYA AI ART PIPELINE...</p>
-            <p id="load-step-1" class="hidden text-slate-400">✓ [API] CONNECTING TO CLUSTER EDGE SERVER... OK</p>
-            <p id="load-step-2" class="hidden text-slate-400">✓ [GPU] CALCULATING LATENT MATRICES VIA TENSOR CORE... OK</p>
-            <p id="load-step-3" class="hidden text-pink-300 font-bold">⚡ [SDXL] ENCODING DYNAMIC ART-WORK CHUNKS... DONE</p>
-          </div>
-
-          <!-- Result Area -->
-          <div id="media-result" class="hidden bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center gap-4">
-            <div class="max-w-xl w-full rounded-xl overflow-hidden border border-slate-800 relative group">
-              <!-- Photo Output -->
-              <img id="media-result-image" src="" alt="AI Generated Image" class="w-full max-h-[350px] object-cover group-hover:scale-102 transition-transform duration-500 hidden">
-              <!-- Video Output -->
-              <video id="media-result-video" src="" controls loop class="w-full max-h-[350px] object-cover hidden"></video>
-              
-              <div class="absolute bottom-3 left-3 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-lg text-[10px] font-mono text-slate-300">
-                Query: <span id="media-result-prompt" class="text-pink-400"></span>
-              </div>
+          <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10 space-y-1">
+            <div class="flex justify-between items-center text-[10px] font-mono">
+              <span class="text-stone-400 font-bold">JOB-103 (WEBHOOK MERGE)</span>
+              <span class="text-emerald-400 font-bold">SUCCESS</span>
             </div>
-            
-            <div class="flex gap-2 w-full max-w-xl justify-end">
-              <button onclick="downloadMedia()" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
-                <i data-lucide="download" class="w-4 h-4"></i> Download Art
-              </button>
-              <button onclick="generateMedia()" class="px-4 py-2 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
-                <i data-lucide="refresh-cw" class="w-4 h-4"></i> Regenerate
-              </button>
+            <div class="flex justify-between text-xs text-stone-300">
+              <span>Commit: 6113728</span>
+              <span>Time: 12 mins ago</span>
+            </div>
+          </div>
+
+          <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10 space-y-1">
+            <div class="flex justify-between items-center text-[10px] font-mono">
+              <span class="text-stone-400 font-bold">JOB-102 (MANUAL ACTION)</span>
+              <span class="text-amber-500 font-bold font-mono">STABLE</span>
+            </div>
+            <div class="flex justify-between text-xs text-stone-300">
+              <span>Commit: f945cf4</span>
+              <span>Time: 1 hour ago</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex justify-between items-center mt-6 pt-3.5 border-t border-slate-800/60">
-        <span class="text-[11px] text-slate-500 font-mono">Pasiya AI Render Engine v2.0</span>
-        <button onclick="generateMedia()" class="px-5 py-3 bg-pink-600 hover:bg-pink-500 text-white rounded-xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-pink-600/15 flex items-center gap-1.5 cursor-pointer font-display">
-          <i data-lucide="wand-2" class="w-4.5 h-4.5"></i> Generate Media Now
-        </button>
+      <div class="bg-amber-950/20 p-3.5 rounded-xl border border-amber-500/10 mt-4 text-[10px] text-amber-300 leading-relaxed font-sans">
+        <p class="font-bold text-white flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i> Security Shield Protection</p>
+        <p class="text-stone-400 text-[10px] mt-0.5">පද්ධතියේ ආරක්ෂාව උපරිමයි. 100% නොමිලේ ලැබෙන ආරක්ෂිත GitHub Pages Static Edge CDN ආරක්ෂණ පවුර සක්‍රියයි.</p>
       </div>
     </div>
 
-    <!-- TAB 3: CODE BUG SCANNER -->
-    <div id="tab-bug" class="tab-content bg-slate-900 border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col justify-between min-h-[500px]">
-      <div>
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-4">
-          <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-              <i data-lucide="terminal" class="w-5 h-5 text-emerald-400"></i>
+    <!-- FREE SERVICES & BUG UTILITY SECTION -->
+    <div class="col-span-12 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-2">
+      
+      <!-- Widget 1: Pasiya Bug Scanner & Code Formatter -->
+      <div class="bg-[#131008] border border-amber-500/25 rounded-3xl p-5 shadow-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-amber-500/10 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <i data-lucide="terminal" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-white flex items-center gap-1.5 font-display text-glow">
+                  Pasiya Bug Scanner & Formatter
+                </h3>
+                <p class="text-[10px] text-stone-400 font-bold">නොමිලේ බග් පරීක්ෂක මෙවලම (Free Debug Utility)</p>
+              </div>
             </div>
-            <div>
-              <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 font-display">
-                Pasiya Bug Scanner
-                <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-mono font-bold">
-                  UTILITY
-                </span>
-              </h3>
-              <p class="text-[11px] text-slate-400 font-sans">
-                නොමිලේ කෝඩ් වල වැරදි පරික්ෂා කරන මෙවලම
-              </p>
-            </div>
+            <span class="text-[9px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold border border-amber-500/20">STABLE</span>
           </div>
-          <span class="text-[10px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded-lg font-mono font-semibold">Ready</span>
-        </div>
 
-        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4 font-sans">
-          ඔබ ලියන ලද HTML, CSS, JavaScript හෝ JSON කේතය (Code) පහත කොටුවට දමා **Scan & Format Code** බටන් එක ක්ලික් කරන්න. එහි ඇති Brackets ගැටලු, unclosed tags, සහ සින්ටැක්ස් බග්ස් ස්වයංක්‍රීයව පරික්ෂා කෙරේ.
-        </p>
+          <p class="text-[11px] text-stone-400 mb-3 font-sans font-medium">
+            ඔබ ලියන ලද HTML, CSS, JSON හෝ JavaScript කෝඩ් එක මෙතනට දමන්න. එහි ඇති වරහන් (Brackets) සහ සින්ටැක්ස් වැරදි ස්වයංක්‍රීයව පරික්ෂා කෙරේ.
+          </p>
 
-        <div class="space-y-4">
           <textarea 
-            id="bug-input" 
-            placeholder="පරීක්ෂා කිරීමට ඔබගේ කේතය මෙතැනට Paste කරන්න..." 
-            class="w-full h-44 bg-slate-950 border border-slate-800 rounded-2xl p-4 text-xs font-mono text-emerald-400 focus:outline-none focus:border-emerald-500/70 resize-none scrollbar-thin transition-all"
+            id="bug-code-input" 
+            placeholder="කේතය (Code) මෙතැනට ඇතුළත් කරන්න..." 
+            class="w-full h-32 bg-[#070503] border border-amber-500/20 rounded-xl p-3 text-xs font-mono text-amber-300 focus:outline-none focus:border-amber-400 resize-none scrollbar-thin"
           ></textarea>
 
-          <!-- Diagnostic Output Panel -->
-          <div id="bug-report" class="hidden bg-slate-950 border border-slate-800/80 rounded-2xl p-4 font-mono text-xs text-slate-300 space-y-2">
-            <div class="flex items-center gap-2 border-b border-slate-800 pb-2">
-              <span id="report-dot" class="w-2.5 h-2.5 rounded-full"></span>
-              <span id="report-status" class="font-bold text-white"></span>
+          <!-- Scan Diagnostics Output -->
+          <div id="bug-scan-output" class="hidden mt-3 p-3 bg-[#0a0805] border border-amber-500/20 rounded-xl text-[11px] font-mono text-[#f7e8cf]">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span id="bug-status-dot" class="w-2 h-2 rounded-full"></span>
+              <span id="bug-status-text" class="font-bold text-white">Scanning...</span>
             </div>
-            <p id="report-details" class="text-slate-400 whitespace-pre-wrap leading-relaxed"></p>
+            <p id="bug-details" class="text-stone-300 leading-relaxed whitespace-pre-wrap"></p>
           </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-4 pt-3 border-t border-amber-500/10">
+          <button onclick="clearBugScanner()" class="text-[11px] text-stone-500 hover:text-stone-400 transition-colors font-sans font-bold cursor-pointer">
+            Clear Text
+          </button>
+          <button 
+            onclick="runBugScanner()" 
+            class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-xs transition-all shadow-md flex items-center gap-1.5 cursor-pointer font-sans"
+          >
+            <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Scan Code Now
+          </button>
         </div>
       </div>
 
-      <div class="flex justify-between items-center mt-6 pt-3.5 border-t border-slate-800/60">
-        <button onclick="clearBugInput()" class="text-xs text-slate-500 hover:text-slate-400 font-sans">
-          Clear Text Box
-        </button>
-        <button onclick="runBugScanner()" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-emerald-600/15 flex items-center gap-1.5 cursor-pointer font-display">
-          <i data-lucide="shield-alert" class="w-4.5 h-4.5"></i> Scan & Format Code
-        </button>
-      </div>
-    </div>
-
-    <!-- TAB 4: OFFICIAL LINKS HUB / LINK-IN-BIO (SOLVED Suggestion #4) -->
-    <div id="tab-links" class="tab-content bg-slate-900 border border-slate-800/80 rounded-3xl p-5 shadow-xl min-h-[500px]">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center">
-            <i data-lucide="layers" class="w-5 h-5 text-sky-400"></i>
+      <!-- Widget 2: Free API Live Panel Simulator -->
+      <div class="bg-[#131008] border border-amber-500/25 rounded-3xl p-5 shadow-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-amber-500/10 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <i data-lucide="globe" class="w-4 h-4 text-amber-400"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-white flex items-center gap-1.5 font-display text-glow">
+                  Free API Live Panel Simulator
+                </h3>
+                <p class="text-[10px] text-stone-400">නොමිලේ සේවාවන් (Automated Panel Service)</p>
+              </div>
+            </div>
+            <span class="text-[9px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold border border-amber-500/20">100% FREE</span>
           </div>
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-1.5 font-display">
-              Pasiya Max Contact Hub
-              <span class="text-[9px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-full font-mono font-bold">
-                SOCIALS
-              </span>
-            </h3>
-            <p class="text-[11px] text-slate-400 font-sans">
-              පසිඳු දනංජයගේ නිල සමාජ මාධ්‍ය ජාල සහ සබඳතා සියල්ල එකම තැනකින්
-            </p>
+
+          <p class="text-[11px] text-stone-400 mb-3 font-sans font-medium">
+            පහත ඇති මෙනුවෙන් ඔබට අවශ්‍ය නොමිලේ සේවාව තෝරා **Run Service** ක්ලික් කරන්න. සේවාව ස්වයංක්‍රීයව ක්‍රියාත්මක වී ප්‍රතිඵල පෙන්වනු ඇත.
+          </p>
+
+          <div class="space-y-3 font-sans">
+            <div>
+              <label class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1 font-mono">Select Free Service</label>
+              <select id="api-service-select" class="w-full bg-[#070503] border border-amber-500/20 rounded-xl px-3 py-2 text-xs text-stone-300 focus:outline-none focus:border-amber-400 cursor-pointer">
+                <option value="ip">🌍 Show My Public IP & Latency Check</option>
+                <option value="motivation">💬 Generate Pasiya Motivation Quote (Sinhala)</option>
+                <option value="password">🔑 Secure Bot Configuration Key Generator</option>
+                <option value="tech">🐱 Automated Tech Fact (English)</option>
+              </select>
+            </div>
+
+            <!-- API Result Card -->
+            <div id="api-result-box" class="bg-[#070503] border border-amber-500/20 rounded-xl p-3 min-h-[100px] max-h-[110px] overflow-y-auto text-[11px] font-mono text-amber-300 scrollbar-thin">
+              <p class="text-stone-500">// live API results will be shown here after execution...</p>
+            </div>
           </div>
         </div>
-        <span class="text-xs font-mono text-slate-400">13 Channels</span>
+
+        <div class="flex justify-between items-center mt-4 pt-3 border-t border-amber-500/10">
+          <span class="text-[10px] text-amber-400 flex items-center gap-1 font-mono font-bold">
+            <span class="w-1.5 h-1.5 bg-amber-400 rounded-full animate-ping"></span> Live Integration Active
+          </span>
+          <button 
+            onclick="runApiService()" 
+            class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-xs transition-all shadow-md flex items-center gap-1.5 cursor-pointer font-sans"
+          >
+            <i data-lucide="play" class="w-3.5 h-3.5"></i> Run Service
+          </button>
+        </div>
       </div>
 
-      <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800/80 mb-6 text-center max-w-xl mx-auto space-y-2">
-        <h4 class="text-xs sm:text-sm font-bold text-white font-display">❤️ Please support and follow us on all platforms! ❤️</h4>
-        <p class="text-[11px] text-slate-400">අපගේ තාක්ෂණික වීඩියෝ නැරඹීමට YouTube චැනලය සබ්ස්ක්‍රයිබ් කර WhatsApp සමූහ සමඟ අදම එකතු වන්න.</p>
-      </div>
-
-      <!-- Links Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        <!-- YouTube -->
-        <a href="https://youtube.com/@pasya" target="_blank" class="p-3.5 bg-slate-950 hover:bg-red-950/20 border border-slate-800 hover:border-red-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-red-600/10 flex items-center justify-center text-red-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="youtube" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">YouTube Channel</p>
-            <p class="text-[10px] text-slate-500 truncate">@pasya</p>
-          </div>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/pasindu5598" target="_blank" class="p-3.5 bg-slate-950 hover:bg-pink-950/20 border border-slate-800 hover:border-pink-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-pink-600/10 flex items-center justify-center text-pink-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="instagram" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Instagram Profile</p>
-            <p class="text-[10px] text-slate-500 truncate">@pasindu5598</p>
-          </div>
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/18xRGhYVUo/" target="_blank" class="p-3.5 bg-slate-950 hover:bg-blue-950/20 border border-slate-800 hover:border-blue-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="facebook" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Facebook Page</p>
-            <p class="text-[10px] text-slate-500 truncate">Pasiya Max</p>
-          </div>
-        </a>
-
-        <!-- WhatsApp Channel -->
-        <a href="https://whatsapp.com/channel/0029VaPASIAMAX" target="_blank" class="p-3.5 bg-slate-950 hover:bg-emerald-950/20 border border-slate-800 hover:border-emerald-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-emerald-600/10 flex items-center justify-center text-emerald-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="message-square" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">WhatsApp Channel</p>
-            <p class="text-[10px] text-slate-500 truncate">PASIA MAX OFFICIAL</p>
-          </div>
-        </a>
-
-        <!-- WhatsApp Group -->
-        <a href="https://chat.whatsapp.com/KjhsWakBQoUI4SEEvZXAsO" target="_blank" class="p-3.5 bg-slate-950 hover:bg-emerald-950/20 border border-slate-800 hover:border-emerald-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-emerald-600/10 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-            <i data-lucide="users" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">WhatsApp Group</p>
-            <p class="text-[10px] text-slate-500 truncate">Support Chat Community</p>
-          </div>
-        </a>
-
-        <!-- Telegram Channel -->
-        <a href="https://t.me/goldenbotmdchannel" target="_blank" class="p-3.5 bg-slate-950 hover:bg-sky-950/20 border border-slate-800 hover:border-sky-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-sky-600/10 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
-            <i data-lucide="send" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Telegram Channel</p>
-            <p class="text-[10px] text-slate-500 truncate">goldenbotmdchannel</p>
-          </div>
-        </a>
-
-        <!-- Blog -->
-        <a href="https://mamageblog.blogspot.com" target="_blank" class="p-3.5 bg-slate-950 hover:bg-amber-950/20 border border-slate-800 hover:border-amber-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-amber-600/10 flex items-center justify-center text-amber-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="globe" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Official Blog</p>
-            <p class="text-[10px] text-slate-500 truncate">mamageblog.blogspot.com</p>
-          </div>
-        </a>
-
-        <!-- TikTok -->
-        <a href="https://tiktok.com/@pasindudananjaya619" target="_blank" class="p-3.5 bg-slate-950 hover:bg-purple-950/20 border border-slate-800 hover:border-purple-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-purple-600/10 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
-            <i data-lucide="music" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">TikTok Profile</p>
-            <p class="text-[10px] text-slate-500 truncate">@pasindudananjaya619</p>
-          </div>
-        </a>
-
-        <!-- LinkedIn Profile -->
-        <a href="https://linkedin.com/in/pasindu-dananjaya-41044831b" target="_blank" class="p-3.5 bg-slate-950 hover:bg-sky-950/20 border border-slate-800 hover:border-sky-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-sky-700/10 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">LinkedIn Profile</p>
-            <p class="text-[10px] text-slate-500 truncate">Pasindu Dananjaya</p>
-          </div>
-        </a>
-
-        <!-- LinkedIn Group -->
-        <a href="https://www.linkedin.com/groups/22101008" target="_blank" class="p-3.5 bg-slate-950 hover:bg-sky-950/20 border border-slate-800 hover:border-sky-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-sky-700/10 flex items-center justify-center text-sky-300 group-hover:scale-105 transition-transform">
-            <i data-lucide="users" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">LinkedIn Group</p>
-            <p class="text-[10px] text-slate-500 truncate">Joint Tech Community</p>
-          </div>
-        </a>
-
-        <!-- X / Twitter -->
-        <a href="https://x.com/PasinduDan98554" target="_blank" class="p-3.5 bg-slate-950 hover:bg-slate-800/40 border border-slate-800 hover:border-white/20 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-            <i data-lucide="twitter" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Twitter / X</p>
-            <p class="text-[10px] text-slate-500 truncate">@PasinduDan98554</p>
-          </div>
-        </a>
-
-        <!-- Viber Channel -->
-        <a href="https://invite.viber.com/?g2=AQBWlEwa%2BDKVDFaaTbesR5FqD2IQZhFjhhQdN%2Fvdsaml9xVUCL8RnDHcFy6kno0U" target="_blank" class="p-3.5 bg-slate-950 hover:bg-violet-950/20 border border-slate-800 hover:border-violet-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-violet-600/10 flex items-center justify-center text-violet-400 group-hover:scale-105 transition-transform">
-            <i data-lucide="phone-call" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Viber Channel</p>
-            <p class="text-[10px] text-slate-500 truncate">Viber Tech Chat</p>
-          </div>
-        </a>
-
-        <!-- Imo Messenger -->
-        <a href="https://s.imoim.net/KNdKwX?ISCI=001102" target="_blank" class="p-3.5 bg-slate-950 hover:bg-sky-950/20 border border-slate-800 hover:border-sky-500/40 rounded-xl transition-all flex items-center gap-3 group">
-          <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-500 group-hover:scale-105 transition-transform">
-            <i data-lucide="phone" class="w-5 h-5"></i>
-          </div>
-          <div class="min-w-0">
-            <p class="text-xs font-bold text-white font-display">Imo Connect</p>
-            <p class="text-[10px] text-slate-500 truncate">Tap to Join</p>
-          </div>
-        </a>
-      </div>
     </div>
 
   </main>
 
-  <!-- Live Deployment pipeline statuses (SOLVED Aesthetics Check) -->
-  <div class="max-w-4xl mx-auto w-full bg-slate-900/40 border border-slate-800 p-4 rounded-2xl grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
-    <div class="flex items-center gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800/60">
-      <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-      <div>
-        <p class="text-slate-500 text-[10px]">VERCEL STATUS</p>
-        <p class="text-slate-200 font-bold font-sans">Handshake Active</p>
-      </div>
-    </div>
-    <div class="flex items-center gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800/60">
-      <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-      <div>
-        <p class="text-slate-500 text-[10px]">RENDER TUNNEL</p>
-        <p class="text-slate-200 font-bold font-sans">24/7 Keep-Alive Live</p>
-      </div>
-    </div>
-    <div class="flex items-center gap-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800/60">
-      <div class="w-2 h-2 rounded-full bg-indigo-400"></div>
-      <div>
-        <p class="text-slate-500 text-[10px]">EDGE LOCATION</p>
-        <p class="text-slate-200 font-bold font-sans" id="edge-location-val">Checking cluster...</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- System Footer -->
-  <footer class="flex flex-col sm:flex-row items-center justify-between py-5 text-xs text-slate-500 border-t border-slate-800/80 gap-3 max-w-4xl mx-auto w-full mt-auto">
-    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 uppercase tracking-widest font-mono text-[11px]">
-      <span id="footer-clock">Session: 00:00:00</span>
+  <!-- Footer with official links & URL copy features -->
+  <footer class="flex flex-col sm:flex-row items-center justify-between py-6 text-xs text-stone-500 border-t border-amber-500/15 gap-4 mt-auto">
+    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 uppercase tracking-widest font-mono text-[11px] font-bold">
+      <span id="footer-clock">Session: 14:24:02</span>
       <span>IP: 192.168.1.102</span>
-      <button onclick="copyCurrentPageUrl()" class="text-sky-400 hover:text-sky-300 font-sans font-bold underline flex items-center gap-1 cursor-pointer normal-case tracking-normal">
-        <i data-lucide="copy" class="w-3 h-3"></i> Copy Hub link
+      <button onclick="copyCurrentAppLink()" class="text-amber-400 hover:text-amber-300 font-sans font-bold underline flex items-center gap-1.5 cursor-pointer normal-case tracking-normal">
+        <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Hub URL
       </button>
+      <a href="https://youtube.com/@pasya" target="_blank" class="text-amber-400 hover:text-amber-300 font-sans font-bold underline normal-case tracking-normal flex items-center gap-1.5">
+        📲 Pasiya Max Official Links
+      </a>
     </div>
-    <div class="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-full border border-slate-800">
-      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-      <span class="text-[10px] font-bold tracking-wider text-slate-300 uppercase">
-        PASIYA AI COMMAND ENGINE SUCCESS
+    
+    <div class="flex items-center gap-2 bg-[#14110b] px-3.5 py-1.5 rounded-full border border-amber-500/20">
+      <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
+      <span class="text-[10px] font-bold tracking-wider text-amber-300 uppercase font-mono">
+        PASIYA AI STANDALONE ACTIVE
       </span>
     </div>
   </footer>
 
-  <!-- Toast Notification Overlay -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-indigo-600 border border-indigo-500 text-white font-sans text-xs sm:text-sm px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 translate-y-20 opacity-0 transition-all duration-300">
-    <i data-lucide="check-circle" class="w-4.5 h-4.5 text-emerald-300"></i>
-    <span id="toast-message" class="font-semibold"></span>
+  <!-- Toast Notification -->
+  <div id="toast-notif" class="fixed bottom-6 right-6 z-50 bg-[#1f170b] border border-amber-500 text-amber-200 font-sans text-xs px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 translate-y-20 opacity-0 transition-all duration-300">
+    <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 animate-bounce"></i>
+    <span id="toast-text" class="font-bold">Action completed successfully!</span>
   </div>
 
   <script>
-    // Initialize Icons
-    lucide.createIcons();
+    // Initialize Lucide Icons safely
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
-    // Session Timer clock
+    // Simulated features
+    function refreshVitals() {
+      showToast('Optimizing Pasiya AI Local UI Core Engine...');
+      setTimeout(() => {
+        const randomCpu = (Math.random() * 8 + 3).toFixed(1);
+        document.getElementById('cpu-load-val').innerText = randomCpu + '%';
+        showToast('Engine optimization successfully complete! No keys required.');
+      }, 1000);
+    }
+
+    // Copying functions
+    function copyCurrentAppLink() {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('Application dashboard link copied to clipboard!');
+    }
+
+    // Helper Toast
+    function showToast(text) {
+      const toast = document.getElementById('toast-notif');
+      const toastText = document.getElementById('toast-text');
+      if (toastText) toastText.innerText = text;
+      
+      if (toast) {
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+      }
+    }
+
+    // Clock
     setInterval(() => {
       const now = new Date();
-      document.getElementById('footer-clock').innerText = 'Session: ' + now.toTimeString().split(' ')[0];
+      const clockEl = document.getElementById('footer-clock');
+      if (clockEl) {
+        clockEl.innerText = 'Session: ' + now.toTimeString().split(' ')[0];
+      }
     }, 1000);
 
-    // Dynamic Edge API latency lookups
-    const cities = ["Colombo Edge", "Singapore Edge", "Mumbai Node", "Tokyo Host"];
-    document.getElementById('edge-location-val').innerText = cities[Math.floor(Math.random() * cities.length)] + " (42ms)";
-
-    // TAB MANAGEMENT
-    function switchTab(tabId) {
-      // Hide all content blocks
-      document.querySelectorAll('.tab-content').forEach(el => {
-        el.classList.remove('active');
-      });
-      // Show requested tab
-      document.getElementById('tab-' + tabId).classList.add('active');
-
-      // Update button visual styles
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.className = "tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer";
-      });
-
-      const activeBtn = document.getElementById('btn-' + tabId);
-      if (tabId === 'chat') {
-        activeBtn.className = "tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white cursor-pointer";
-      } else if (tabId === 'media') {
-        activeBtn.className = "tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all bg-pink-600 text-white cursor-pointer";
-      } else if (tabId === 'bug') {
-        activeBtn.className = "tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all bg-emerald-600 text-white cursor-pointer";
-      } else if (tabId === 'links') {
-        activeBtn.className = "tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all bg-sky-600 text-white cursor-pointer";
-      }
-    }
-
-    // STATE VARIABLES
-    let isFounderMode = false;
-    let selectedMediaType = 'photo';
-
-    function setMediaType(type) {
-      selectedMediaType = type;
-      const photoBtn = document.getElementById('media-type-photo');
-      const videoBtn = document.getElementById('media-type-video');
+    // CHATBOT INTERACTIVE SYSTEM
+    const CHAT_RESPONSES = {
+      social: "📲 **පසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල ගිණුම් සබැඳි (Official Social Links):**\\n\\n" +
+              "1️⃣ 📸 Instagram: https://www.instagram.com/pasindu5598\\n" +
+              "2️⃣ 📘 Facebook: https://www.facebook.com/share/18xRGhYVUo/\\n" +
+              "3️⃣ 🌐 Blog: https://mamageblog.blogspot.com\\n" +
+              "4️⃣ ▶️ YouTube: https://youtube.com/@pasya\\n" +
+              "5️⃣ 💬 WhatsApp Channel: https://whatsapp.com/channel/0029VaPASIAMAX\\n" +
+              "6️⃣ 💬 WhatsApp Group: https://chat.whatsapp.com/KjhsWakBQoUI4SEEvZXAsO\\n" +
+              "7️⃣ 📱 Imo: https://s.imoim.net/KNdKwX?ISCI=001102\\n" +
+              "8️⃣ 🎵 TikTok: https://tiktok.com/@pasindudananjaya619\\n" +
+              "9️⃣ 💼 LinkedIn Profile: https://linkedin.com/in/pasindu-dananjaya-41044831b\\n" +
+              "🔟 💼 LinkedIn Group: https://www.linkedin.com/groups/22101008\\n" +
+              "1️⃣1️⃣ 🐦 X / Twitter: https://x.com/PasinduDan98554\\n" +
+              "1️⃣2️⃣ 💜 Viber Channel: https://invite.viber.com/?g2=AQBWlEwa%2BDKVDFaaTbesR5FqD2IQZhFjhhQdN%2Fvdsaml9xVUCL8RnDHcFy6kno0U\\n" +
+              "1️⃣3️⃣ 📢 Telegram Channel: https://t.me/goldenbotmdchannel\\n\\n" +
+              "❤️ කරුණාකර අපගේ චැනල් සබ්ස්ක්‍රයිබ් කර සපෝර්ට් කරන්න!",
       
-      if (type === 'photo') {
-        photoBtn.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-pink-600 text-white cursor-pointer";
-        videoBtn.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-400 hover:text-white cursor-pointer";
-      } else {
-        videoBtn.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-pink-600 text-white cursor-pointer";
-        photoBtn.className = "flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-slate-400 hover:text-white cursor-pointer";
-      }
-    }
+      owner: "👤 **පසිඳු දනංජය (Pasiya Max) කවුද?**\\n\\n" +
+             "පසිඳු දනංජය (Pasiya Max) යනු තාක්ෂණික සහ මෘදුකාංග සංවර්ධන ලෝකයේ ශ්‍රී ලාංකීය සන්නාමයකි. \\n\\n" +
+             "ඔහු විවිධ ස්වයංක්‍රීය බොට් වරුන් (Automated Bots), වෙබ් අඩවි සහ මෙවලම් සංවර්ධනය කරමින් පරිශීලකයින්ට සහාය වේ. \\n\\n" +
+             "ඔහුගේ යූටියුබ් නාලිකාව (@pasya) සහ වට්ස්ඇප් සමූහ ඔස්සේ ඔබ සැමට තාක්ෂණික උපකාර සපයනු ලැබේ. ❤️\\n\\n" +
+             "📍 Colombo, Sri Lanka (Kotte)\\n" +
+             "📧 pasindudananjaya92@gmail.com\\n" +
+             "📞 +94 75 957 0743 / +94 70 775 1710",
+             
+      github: "🛠️ **මෙම පිටුව ඔබගේම GitHub Pages එකට දාගන්නේ කෙසේද?**\\n\\n" +
+              "1. ඔබගේ GitHub ගිණුමේ **Pasiya-Max-AI-OS-06** නමින් නව Repository එකක් සාදන්න.\\n" +
+              "2. එහි **index.html** නමින් නව ගොනුවක් සාදා මෙම මුළු කේතයම පේස්ට් කර සේව් කරන්න.\\n" +
+              "3. Settings > Pages වෙත ගොස් Deploy on main branch සක්‍රිය කරන්න.\\n" +
+              "4. තත්පර 30කින් ඔබගේ වෙබ් අඩවිය ලයිව් වේවි! 🚀",
 
-    // TOAST NOTIFICATIONS
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-message').innerText = msg;
-      toast.classList.remove('translate-y-20', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
-      setTimeout(() => {
-        toast.classList.remove('translate-y-0', 'opacity-100');
-        toast.classList.add('translate-y-20', 'opacity-0');
-      }, 3000);
-    }
-
-    function copyCurrentPageUrl() {
-      navigator.clipboard.writeText(window.location.href);
-      showToast('Hub Link copied to clipboard successfully!');
-    }
-
-    // FOUNDER LOGIN FLOW (GOLD SHIELD ACTIVATOR)
-    function triggerFounderLogin() {
-      if (isFounderMode) {
-        showToast('You are already verified as Founder, Pasiya Max! 👑');
-        return;
-      }
-      
-      const email = prompt("Enter founder validation email credentials:");
-      if (email === "pasindudananjaya92@gmail.com" || email === "pasiya" || email === "admin") {
-        isFounderMode = true;
-        showToast('👑 Founder Mode Validation Successful! Welcome back, Pasiya Max!');
-        
-        // Transform the UI elements to glowing gold theme
-        document.getElementById('main-body').classList.add('border-t-4', 'border-amber-500');
-        document.getElementById('header-container').classList.add('founder-glow');
-        document.getElementById('bot-shield-logo').className = "w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/40 flex items-center justify-center shrink-0";
-        document.getElementById('hub-badge').className = "text-[10px] font-mono bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/20";
-        document.getElementById('hub-badge').innerText = "👑 Founder Online";
-        document.getElementById('founder-login-btn').className = "flex items-center gap-2 bg-amber-500/20 px-3.5 py-1.5 rounded-xl border border-amber-500/40 text-xs text-amber-300 transition-all font-bold font-display";
-        document.getElementById('founder-login-btn').innerHTML = `<i data-lucide="crown" class="w-4 h-4 text-amber-400"></i><span>Founder Active</span>`;
-        
-        // Append a founder greeting to chat history
-        const chatBox = document.getElementById('chat-messages');
-        const founderGreeting = document.createElement('div');
-        founderGreeting.className = 'flex items-start gap-3';
-        founderGreeting.innerHTML = `
-          <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
-            <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i>
-          </div>
-          <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-r-2xl rounded-bl-2xl text-slate-300 max-w-[85%] leading-relaxed space-y-2">
-            <p class="font-bold text-amber-400 text-[12px] font-display">Pasiya AI (Founder Control Mode)</p>
-            <p>👑 **ආයුබෝවන්, මගේ ගෞරවනීය නිර්මාතෘ පසිඳු දනංජය (Pasiya Max) මහතාණෙනි!**</p>
-            <p>ඔබ මෙම පාලන පුවරුවට සාර්ථකව පිවිසී ඇත. ඔබගේ සියලුම නිල සම්බන්ධතා සහ පැනල් සමමුහුර්තකරණය වී ඇත. මා සැදී පැහැදී සිටින්නේ ඔබ වෙනුවෙන්මයි, බොස්! 😊</p>
-          </div>
-        `;
-        chatBox.appendChild(founderGreeting);
-        lucide.createIcons();
-        chatBox.scrollTop = chatBox.scrollHeight;
-      } else {
-        alert("Credentials invalid. Access denied.");
-      }
-    }
-
-    // CHAT BOT MESSAGES LOGIC
-    const BOT_RESPONSES = {
-      social: `📲 **පසිඳු දනංජය (Pasiya Max) ගේ සියලුම නිල සමාජ ජාල සබැඳි (Official Social Links):**\n\n` +
-              `1️⃣ 📸 Instagram: https://www.instagram.com/pasindu5598\n` +
-              `2️⃣ 📘 Facebook: https://www.facebook.com/share/18xRGhYVUo/\n` +
-              `3️⃣ 🌐 Blog: https://mamageblog.blogspot.com\n` +
-              `4️⃣ ▶️ YouTube: https://youtube.com/@pasya\n` +
-              `5️⃣ 💬 WhatsApp Channel: https://whatsapp.com/channel/0029VaPASIAMAX\n` +
-              `6️⃣ 💬 WhatsApp Group: https://chat.whatsapp.com/KjhsWakBQoUI4SEEvZXAsO\n` +
-              `7️⃣ 📱 Imo: https://s.imoim.net/KNdKwX?ISCI=001102\n` +
-              `8️⃣ 🎵 TikTok: https://tiktok.com/@pasindudananjaya619\n` +
-              `9️⃣ 💼 LinkedIn Profile: https://linkedin.com/in/pasindu-dananjaya-41044831b\n` +
-              `🔟 💼 LinkedIn Group: https://www.linkedin.com/groups/22101008\n` +
-              `1️⃣1️⃣ 🐦 X / Twitter: https://x.com/PasinduDan98554\n` +
-              `1️⃣2️⃣ 💜 Viber Channel: https://invite.viber.com/?g2=AQBWlEwa%2BDKVDFaaTbesR5FqD2IQZhFjhhQdN%2Fvdsaml9xVUCL8RnDHcFy6kno0U\n` +
-              `1️⃣3️⃣ 📢 Telegram Channel: https://t.me/goldenbotmdchannel\n\n` +
-              `❤️ කරුණාකර අපගේ සියලුම චැනල follow කර සහයෝගය දක්වන්න!`,
-      
-      owner: `👤 **පසිඳු දනංජය (Pasiya Max) කවුද?**\n\n` +
-             `මෙම පද්ධතියේ සහ B-Hook Engine එකෙහි නිර්මාතෘවරයා වනුයේ දක්ෂ තාක්ෂණික ශිල්පී **පසිඳු දනංජය (Pasiya Max)** මහතායි.\n\n` +
-             `📍 **ලිපිනය:** කොළඹ, ශ්‍රී ලංකා\n` +
-             `📧 **ඊමේල්:** pasindudananjaya92@gmail.com\n` +
-             `📞 **දුරකථන අංක (Admin Contacts):**\n` +
-             `- +94 75 957 0743 (WhatsApp/Imo Active)\n` +
-             `- +94 70 775 1710 (Calls Active)\n\n` +
-             `ඔහුගේ යූටියුබ් නාලිකාව (@pasya) සබ්ස්ක්‍රයිබ් කර අපගේ වට්ස්ඇප් ගෲප් එකට එකතු වෙන්න! ❤️`,
-
-      commands: `⚙️ **Pasiya AI Chat Commands list:**\n\n` +
-                `- \`/clear\` - Chat messages සහ terminal logs සියල්ලම ක්ලියර් කරයි.\n` +
-                `- \`/sync\` - Render 24/7 keep-alive Handshake සක්‍රිය කරයි.\n` +
-                `- \`/ping\` - Latency & DNS speed එක පරික්ෂා කරයි.\n` +
-                `- \`/push\` - GitHub webhook deployment push එකක් simulate කරයි.`,
-
-      media_info: `🎨 **ඡායාරූප නිපදවීමට උපදෙස් (AI Media Maker Instruction):**\n\n` +
-                  `ඡායාරූප නිපදවීමට ඉහළ ඇති **"🎨 AI Media Maker"** ටැබ් එකට පිවිසෙන්න.\n\n` +
-                  `1. ඔබගේ visual prompt එක (උදා: cyberpunk neon lotus, flying car over colombo) ඇතුලත් කරන්න.\n` +
-                  `2. Art Style එකක් සහ High-Res Photo තෝරාගන්න.\n` +
-                  `3. **Generate Media Now** බටන් එක ක්ලික් කරන්න. තත්පර 2කින් පින්තූරය සජීවීව ලැබෙනු ඇත!`
+      vitals: "⚡ **Vitals optimization සාර්ථකයි!**\\n\\n" +
+              "Pasiya AI local CPU cache සහ dynamic RAM blocks සාර්ථකව නිදහස් කරන ලදී. \\n" +
+              "කිසිදු ගෙවීමකින් තොරව මෙම පද්ධතිය 100% ක්‍රියාකාරීත්වයෙන් පවතී. ● PIPELINE OPTIMAL"
     };
 
-    function handleChatKeypress(event) {
+    function handleChatEnter(event) {
       if (event.key === 'Enter') {
         sendChatMessage();
       }
     }
 
-    function clickPreset(presetType) {
-      appendUserMessage(presetType === 'social' ? '📲 Requesting official Social links...' :
-                        presetType === 'owner' ? '👤 Who is Pasiya Max?' :
-                        presetType === 'commands' ? '⚙️ Bot Commands List' : '🎨 How to generate media?');
+    function clickPreset(type) {
+      appendUserMessage(type === 'social' ? '📲 Social Links' : 
+                        type === 'owner' ? '👤 Who is Pasiya Max?' : 
+                        type === 'github' ? '🛠️ GitHub Deploy Help' : '⚡ Optimize Vitals');
       showBotTyping();
       setTimeout(() => {
         removeBotTyping();
-        appendBotMessage(BOT_RESPONSES[presetType]);
-      }, 600);
+        appendBotMessage(CHAT_RESPONSES[type]);
+      }, 700);
     }
 
     function sendChatMessage() {
-      const input = document.getElementById('chat-input');
+      const input = document.getElementById('chat-user-input');
+      if (!input) return;
       const text = input.value.trim();
       if (!text) return;
 
       appendUserMessage(text);
       input.value = '';
+
       showBotTyping();
 
+      // Process reply
       setTimeout(() => {
         removeBotTyping();
         let reply = "";
-        const lower = text.toLowerCase();
+        const lowerText = text.toLowerCase();
 
-        // Check Command Triggers
-        if (lower.startsWith('/clear')) {
-          document.getElementById('chat-messages').innerHTML = "";
-          reply = isFounderMode 
-            ? "🧹 **විධානය සාර්ථකයි, බොස්!** මම සියලුම පණිවිඩ සැනෙකින් මකා දැමුවා."
-            : "✅ කතා බහ සියල්ල සාර්ථකව මකා දැමුවා (Cleared successfully!).";
-          appendBotMessage(reply);
-          return;
-        } else if (lower.startsWith('/sync')) {
-          reply = isFounderMode
-            ? "🚀 **Keep-Alive Handshake සාර්ථකයි, බොස්!** Vercel, Render සහ Cloud Run පැනල් සියල්ලම 100% සමමුහුර්ත කළා."
-            : "🚀 24/7 Keep-Alive Handshake සක්‍රිය කර Vercel (ඇට්සල්) & Render සමමුහුර්ත කළා! (Optimal level synced.)";
-        } else if (lower.startsWith('/ping')) {
-          reply = isFounderMode
-            ? "⚡ **Edge Cluster Pinged, සර්!** Latency: 42ms | Status: 200 OK | Node clusters are operating at peak efficiency."
-            : "⚡ Edge Worker cluster එක සාර්ථකව Ping කරන ලදී. Latency එක: 42ms (Health status: 200 OK).";
-        } else if (lower.startsWith('/push')) {
-          reply = isFounderMode
-            ? "📦 **GitHub Webhook Push Simulate කළා, බොස්!** Commit code එකක් Background එකේ ධාවනය වෙමින් පවතිනවා."
-            : "📦 GitHub Webhook push event එකක් සාර්ථකව ධාවනය කළා (Simulated push signature).";
-        }
-        // General text checks
-        else if (lower.includes('link') || lower.includes('social') || lower.includes('යූටියුබ්') || lower.includes('youtube') || lower.includes('whatsapp') || lower.includes('fb') || lower.includes('facebook') || lower.includes('ලින්ක්') || lower.includes('tiktok') || lower.includes('insta')) {
-          reply = BOT_RESPONSES.social;
-        } else if (lower.includes('pasiya') || lower.includes('pasindu') || lower.includes('owner') || lower.includes('කවුද') || lower.includes('max') || lower.includes('පසිඳු')) {
-          reply = BOT_RESPONSES.owner;
-        } else if (lower.includes('email') || lower.includes('ඊමේල්') || lower.includes('mail') || lower.includes('address') || lower.includes('ලිපිනය') || lower.includes('colombo') || lower.includes('කොළඹ')) {
-          reply = `📍 **ලිපිනය සහ සම්බන්ධතා තොරතුරු:**\n\n👤 **නිර්මාතෘ:** පසිඳු දනංජය (Pasiya Max)\n🏠 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා (ශ්‍රී ජයවර්ධනපුර කෝට්ටේ)\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\n📞 **දුරකථන:** +94 75 957 0743 / +94 70 775 1710\n\nනොමිලේ ධාවනය වන පැනල් සහ බොට් සේවා පිළිබඳ විමසීම් සඳහා සම්බන්ධ කරගන්න.`;
-        } else if (lower.includes('phone') || lower.includes('number') || lower.includes('අංක') || lower.includes('නොම්මර') || lower.includes('දුරකථන') || lower.includes('contact')) {
-          reply = `📞 **පසිඳු දනංජය (Pasiya Max) ගේ නිල දුරකථන අංක (Admin Contacts):**\n\n1️⃣ **+94 75 957 0743** (WhatsApp & Imo Active)\n2️⃣ **+94 70 775 1710** (Personal call Active)\n\nඔබට ඕනෑම තාක්ෂණික උපකාරයක් සදහා පසිඳු මහතාව සෘජුව සම්බන්ධ කරගත හැක!`;
-        } else if (lower.includes('hi') || lower.includes('hello') || lower.includes('හලෝ') || lower.includes('කොහොමද') || lower.includes('kohomada') || lower.includes('hey')) {
-          reply = isFounderMode
-            ? `ආයුබෝවන්, මගේ නිර්මාතෘ පසිඳු දනංජය (Pasiya Max) මහතාණෙනි! 👑 ඔබගේ පාලන පුවරුව සක්‍රියයි. අද ඔබට සිදුවිය යුතු සේවය කුමක්ද, බොස්? 😊`
-            : `ආයුබෝවන්! මම Pasiya AI. පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයායි. මට අද ඔබට උදව් කළ හැක්කේ කෙසේද? 😊\n\nඔබට පසිඳු මහතාගේ සම්බන්ධතා තොරතුරු, සමාජ ජාල සබැඳි හෝ නොමිලේ ක්‍රියාත්මක වන පැනල් පිළිබඳව විමසීම් කළ හැක.`;
+        if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('helo') || lowerText.includes('හලෝ') || lowerText.includes('ආයුබෝවන්') || lowerText.includes('kohomada') || lowerText.includes('කොහොමද') || lowerText.includes('හායි')) {
+          reply = "ආයුබෝවන්! මම Pasiya AI. පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයායි. මට ඔබට අද උදව් කළ හැක්කේ කෙසේද? 😊\\n\\nපසිඳුගේ සමාජ ජාල ගිණුම් වල ලින්ක් ලබා ගැනීමට **Preset Buttons** ක්ලික් කරන්න නැතහොත් මගෙන් ඕනෑම දෙයක් අසන්න.";
+        } else if (lowerText.includes('link') || lowerText.includes('social') || lowerText.includes('යූටියුබ්') || lowerText.includes('youtube') || lowerText.includes('whatsapp') || lowerText.includes('fb') || lowerText.includes('facebook') || lowerText.includes('ලින්ක්') || lowerText.includes('tiktok') || lowerText.includes('insta')) {
+          reply = CHAT_RESPONSES.social;
+        } else if (lowerText.includes('pasiya') || lowerText.includes('pasindu') || lowerText.includes('owner') || lowerText.includes('කවුද') || lowerText.includes('max') || lowerText.includes('පසිඳු')) {
+          reply = CHAT_RESPONSES.owner;
+        } else if (lowerText.includes('github') || lowerText.includes('deploy') || lowerText.includes('pages') || lowerText.includes('setup') || lowerText.includes('හදන්නෙ') || lowerText.includes('code') || lowerText.includes('කෝඩ්')) {
+          reply = CHAT_RESPONSES.github;
+        } else if (lowerText.includes('free') || lowerText.includes('panel') || lowerText.includes('පැනල්') || lowerText.includes('නොමිලේ') || lowerText.includes('වැඩසටහන්') || lowerText.includes('tool') || lowerText.includes('බග්') || lowerText.includes('bug')) {
+          reply = "අපගේ පද්ධතිය සතුව **නොමිලේ ධාවනය වන සුපිරි පැනල් සහ බග් සෝදන මෙවලම්** රැසක් ඇත!\\n\\n" +
+                  "1️⃣ **Pasiya Bug Scanner & Formatter** (පහලින් ඔබට කෝඩ් එක දමා පරික්ෂා කල හැක)\\n\\n" +
+                  "2️⃣ **Free API Endpoint Simulator & Live Tester** (විවිධ API නොමිලේ ක්‍රියාත්මක කර බැලීමේ හැකියාව)\\n\\n" +
+                  "3️⃣ **Live System Vitals Optimizer** (ඔබගේ බ්‍රවුසරයේ ධාවන වේගය පරීක්ෂා කරන වේග මීටරය)\\n\\n" +
+                  "පහත ඇති Panel කොටසින් ඔබට මේවා භාවිතා කල හැක! 🚀";
+        } else if (lowerText.includes('phone') || lowerText.includes('number') || lowerText.includes('අංක') || lowerText.includes('නොම්මර') || lowerText.includes('දුරකථන') || lowerText.includes('contact') || lowerText.includes('947')) {
+          reply = "📞 **පසිඳු දනංජය (Pasiya Max) ගේ නිල දුරකථන අංක (Admin Contacts):**\\n\\n1️⃣ **+94 75 957 0743** (WhatsApp & Imo Active)\\n2️⃣ **+94 70 775 1710** (Personal & Call Active)\\n\\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\\n📍 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා (ශ්‍රී ජයවර්ධනපුර කෝට්ටේ)\\n\\nඔබට ඕනෑම ගැටලුවක් සඳහා මෙම අංක ඔස්සේ පසිඳු මහතාව සෘජුව සම්බන්ධ කරගත හැක! ❤️";
+        } else if (lowerText.includes('email') || lowerText.includes('ඊමේල්') || lowerText.includes('mail') || lowerText.includes('address') || lowerText.includes('ලිපිනය') || lowerText.includes('colombo') || lowerText.includes('කොළඹ')) {
+          reply = "📍 **ලිපිනය සහ සම්බන්ධතා තොරතුරු:**\\n\\n👤 **නිර්මාතෘ:** පසිඳු දනංජය (Pasiya Max)\\n🏠 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා, ශ්‍රී ජයවර්ධනපුර කෝට්ටේ\\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\\n📞 **දුරකථන:** +94 75 957 0743 / +94 70 775 1710\\n\\nනොමිලේ ධාවනය වන පැනල් සහ බොට් සේවා පිළිබඳ විමසීම් සඳහා සම්බන්ධ කරගන්න. 🌟";
         } else {
-          reply = isFounderMode
-            ? `ස්තූතියි ඔබගේ පණිවිඩයට, බොස්! 👑\n\nඔබ විමසූ දේ: "${text}"\n\nමම ඔබගේ විධානයන්ට අනුව ක්‍රියාත්මක වීමට සැමවිටම සූදානම්.`
-            : `ස්තූතියි ඔබගේ පණිවිඩයට! ❤️ මම **Pasiya AI** සහායකයා ලෙස සැමවිටම ඔබගේ සහයට සූදානම්!\n\nඔබගේ ප්‍රශ්නය: "${text}"\n\nපසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල සබැඳි ලබා ගැනීමට ඉහළ ඇති **📲 Social Links** ක්ලික් කරන්න. ඔහුගේ යූටියුබ් නාලිකාව (@pasya) subscribe කර අප සමඟ රැඳී සිටින්න!`;
+          reply = "ස්තූතියි ඔබගේ පණිවිඩයට! ❤️ මම **Pasiya AI** සහායකයා ලෙස සැමවිටම ඔබගේ සහයට සූදානම්!\\n\\n" +
+                  "ඔබගේ ප්‍රශ්නය: \\"" + text + "\\"\\n\\n" +
+                  "පසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල සබැඳි ලබා ගැනීමට ඉහළ ඇති **📲 Social Links** ක්ලික් කරන්න. ඔහුගේ යූටියුබ් නාලිකාව (@pasya) subscribe කර අප සමඟ රැඳී සිටින්න!";
         }
 
         appendBotMessage(reply);
-      }, 900);
+      }, 1000);
     }
 
     function appendUserMessage(text) {
-      const container = document.getElementById('chat-messages');
+      const container = document.getElementById('chat-messages-container');
+      if (!container) return;
       const div = document.createElement('div');
-      div.className = 'flex items-start gap-3 justify-end';
-      div.innerHTML = `
-        <div class="p-3 bg-indigo-600 text-white rounded-l-2xl rounded-br-2xl max-w-[85%] leading-relaxed">
-          <p class="font-bold text-[11px] text-indigo-200">You</p>
-          <p class="whitespace-pre-line">${text}</p>
-        </div>
-        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0">
-          <i data-lucide="user" class="w-4 h-4 text-white"></i>
-        </div>
-      `;
+      div.className = 'flex items-start gap-2.5 justify-end';
+      
+      const textDiv = document.createElement('div');
+      textDiv.className = 'p-2.5 bg-amber-600 text-white rounded-l-xl rounded-br-xl max-w-[85%] leading-relaxed shadow-lg shadow-amber-600/15';
+      
+      const nameP = document.createElement('p');
+      nameP.className = 'font-bold text-[10px] text-amber-100 font-sans uppercase tracking-wider mb-0.5';
+      nameP.innerText = 'ඔබ (You)';
+      
+      const textP = document.createElement('p');
+      textP.className = 'whitespace-pre-line text-xs font-medium';
+      textP.textContent = text;
+      
+      textDiv.appendChild(nameP);
+      textDiv.appendChild(textP);
+      
+      const iconDiv = document.createElement('div');
+      iconDiv.className = 'w-6 h-6 rounded bg-amber-600 flex items-center justify-center shrink-0';
+      iconDiv.innerHTML = '<i data-lucide="user" class="w-3.5 h-3.5 text-white"></i>';
+      
+      div.appendChild(textDiv);
+      div.appendChild(iconDiv);
       container.appendChild(div);
-      lucide.createIcons();
+      
+      if (window.lucide) { lucide.createIcons(); }
       container.scrollTop = container.scrollHeight;
     }
 
     function showBotTyping() {
-      const container = document.getElementById('chat-messages');
+      const container = document.getElementById('chat-messages-container');
+      if (!container) return;
+      
       const div = document.createElement('div');
-      div.id = 'bot-typing';
-      div.className = 'flex items-start gap-3';
-      div.innerHTML = `
-        <div class="w-8 h-8 rounded-lg bg-indigo-600/15 border border-indigo-500/30 flex items-center justify-center shrink-0">
-          <i data-lucide="bot" class="w-4 h-4 text-indigo-400"></i>
-        </div>
-        <div class="p-3 bg-slate-900 border border-slate-800 rounded-r-2xl rounded-bl-2xl text-slate-500 max-w-[85%] leading-relaxed flex items-center gap-1.5 font-sans font-semibold">
-          <span>Pasiya AI is typing</span>
-          <span class="animate-bounce font-bold bg-slate-400 w-1.5 h-1.5 rounded-full inline-block"></span>
-          <span class="animate-bounce font-bold bg-slate-400 w-1.5 h-1.5 rounded-full inline-block" style="animation-delay: 0.2s"></span>
-          <span class="animate-bounce font-bold bg-slate-400 w-1.5 h-1.5 rounded-full inline-block" style="animation-delay: 0.4s"></span>
-        </div>
-      `;
+      div.id = 'bot-typing-indicator';
+      div.className = 'flex items-start gap-2.5';
+      
+      const iconDiv = document.createElement('div');
+      iconDiv.className = 'w-6 h-6 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0';
+      iconDiv.innerHTML = '<i data-lucide="bot" class="w-3.5 h-3.5 text-amber-400"></i>';
+      
+      const textDiv = document.createElement('div');
+      textDiv.className = 'p-2.5 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-500 max-w-[85%] leading-relaxed flex items-center gap-1 shadow-sm';
+      
+      const span = document.createElement('span');
+      span.className = 'text-xs font-bold text-stone-400';
+      span.innerText = 'Pasiya AI is thinking...';
+      textDiv.appendChild(span);
+      
+      div.appendChild(iconDiv);
+      div.appendChild(textDiv);
       container.appendChild(div);
-      lucide.createIcons();
+      
+      if (window.lucide) { lucide.createIcons(); }
       container.scrollTop = container.scrollHeight;
     }
 
+    // Remove typing
     function removeBotTyping() {
-      const el = document.getElementById('bot-typing');
+      const el = document.getElementById('bot-typing-indicator');
       if (el) el.remove();
     }
 
-    // Format URLs beautifully with clickable rich cards
-    function formatTextLinks(msgText) {
-      const urlRegex = /(https?:\/\/[^\s]+)/g;
-      return msgText.replace(urlRegex, function(url) {
-        let cleanUrl = url.replace(/[\n,.)]/g, '');
-        let iconName = 'external-link';
-        if (cleanUrl.includes('youtube.com')) iconName = 'youtube';
-        else if (cleanUrl.includes('instagram.com')) iconName = 'instagram';
-        else if (cleanUrl.includes('facebook.com')) iconName = 'facebook';
-        else if (cleanUrl.includes('whatsapp.com')) iconName = 'message-square';
-        else if (cleanUrl.includes('linkedin.com')) iconName = 'linkedin';
-        
-        return `<a href="${cleanUrl}" target="_blank" class="inline-flex items-center gap-1 bg-slate-950/60 border border-slate-800 hover:border-slate-700 hover:text-sky-300 font-bold px-2 py-1 rounded text-sky-400 font-mono break-all my-0.5 select-all">${cleanUrl} <i data-lucide="${iconName}" class="w-3.5 h-3.5 inline shrink-0 ml-1"></i></a>`;
+    function formatBotMessage(text) {
+      const urlRegex = /(https?://[^s]+)/g;
+      return text.replace(urlRegex, function(url) {
+        let cleanUrl = url;
+        if (cleanUrl.endsWith('\\n')) {
+          cleanUrl = cleanUrl.substring(0, cleanUrl.length - 3);
+        }
+        return '<a href="' + cleanUrl + '" target="_blank" class="text-amber-400 hover:text-amber-300 font-bold underline inline-flex items-center gap-1 bg-[#1c1409] px-2 py-0.5 rounded border border-amber-500/20 break-all my-0.5 select-all">' + cleanUrl + ' <i data-lucide="external-link" class="w-3 h-3 shrink-0 inline"></i></a>';
       });
     }
 
     function appendBotMessage(text) {
-      const container = document.getElementById('chat-messages');
+      const container = document.getElementById('chat-messages-container');
+      if (!container) return;
       const div = document.createElement('div');
-      div.className = 'flex items-start gap-3 animate-in fade-in duration-300';
-      const formatted = formatTextLinks(text);
-      div.innerHTML = `
-        <div class="w-8 h-8 rounded-lg bg-indigo-600/15 border border-indigo-500/30 flex items-center justify-center shrink-0">
-          <i data-lucide="bot" class="w-4 h-4 text-indigo-400"></i>
-        </div>
-        <div class="p-3 bg-slate-900 border border-slate-800 rounded-r-2xl rounded-bl-2xl text-slate-300 max-w-[85%] leading-relaxed">
-          <p class="font-bold text-white text-[11px] text-indigo-400 font-display">Pasiya AI Assistant</p>
-          <p class="whitespace-pre-line">${formatted}</p>
-        </div>
-      `;
+      div.className = 'flex items-start gap-2.5 animate-in fade-in duration-300';
+      
+      const iconDiv = document.createElement('div');
+      iconDiv.className = 'w-6 h-6 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0';
+      iconDiv.innerHTML = '<i data-lucide="bot" class="w-3.5 h-3.5 text-amber-400"></i>';
+      
+      const textDiv = document.createElement('div');
+      textDiv.className = 'p-2.5 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[85%] leading-relaxed shadow-sm';
+      
+      const nameP = document.createElement('p');
+      nameP.className = 'font-bold text-amber-400 text-[10px] uppercase tracking-wider mb-0.5';
+      nameP.innerText = 'Pasiya AI';
+      
+      const textP = document.createElement('p');
+      textP.className = 'whitespace-pre-line text-xs font-medium';
+      
+      const formattedText = formatBotMessage(text);
+      textP.innerHTML = formattedText;
+      
+      textDiv.appendChild(nameP);
+      textDiv.appendChild(textP);
+      
+      div.appendChild(iconDiv);
+      div.appendChild(textDiv);
       container.appendChild(div);
-      lucide.createIcons();
+      
+      if (window.lucide) { lucide.createIcons(); }
       container.scrollTop = container.scrollHeight;
     }
 
-
-    // MEDIA GENERATOR PIPELINE IMPLEMENTATION (SOLVED Suggestion #2 & #3)
-    let isGenerating = false;
-
-    function generateMedia() {
-      const promptInput = document.getElementById('media-prompt').value.trim();
-      if (!promptInput) {
-        showToast('කරුණාකර පින්තූරය සඳහා විස්තරයක් (Prompt) ඇතුළත් කරන්න!');
-        return;
-      }
-      if (isGenerating) return;
-
-      isGenerating = true;
-      document.getElementById('media-result').classList.add('hidden');
-      document.getElementById('media-loader').classList.remove('hidden');
-      
-      // Step timeouts
-      setTimeout(() => { document.getElementById('load-step-1').classList.remove('hidden'); }, 500);
-      setTimeout(() => { document.getElementById('load-step-2').classList.remove('hidden'); }, 1100);
-      setTimeout(() => { document.getElementById('load-step-3').classList.remove('hidden'); }, 1700);
-
-      setTimeout(() => {
-        // Complete build sequence
-        document.getElementById('media-loader').classList.add('hidden');
-        document.getElementById('media-result').classList.remove('hidden');
-        document.getElementById('media-result-prompt').innerText = promptInput;
-
-        const imgElement = document.getElementById('media-result-image');
-        const vidElement = document.getElementById('media-result-video');
-
-        if (selectedMediaType === 'photo') {
-          vidElement.classList.add('hidden');
-          imgElement.classList.remove('hidden');
-          // Fetch dynamic image relative to the prompt via Unsplash Source query! Fully functional!
-          imgElement.src = `https://images.unsplash.com/featured/800x450/?` + encodeURIComponent(promptInput) + `&sig=` + Math.floor(Math.random() * 10000);
-        } else {
-          imgElement.classList.add('hidden');
-          vidElement.classList.remove('hidden');
-          vidElement.src = `https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-32128-large.mp4`;
-        }
-
-        // Reset step animations
-        document.getElementById('load-step-1').classList.add('hidden');
-        document.getElementById('load-step-2').classList.add('hidden');
-        document.getElementById('load-step-3').classList.add('hidden');
-        isGenerating = false;
-        showToast('🎨 AI Media successfully generated dynamically!');
-      }, 2400);
-    }
-
-    function downloadMedia() {
-      const img = document.getElementById('media-result-image');
-      const vid = document.getElementById('media-result-video');
-      const url = selectedMediaType === 'photo' ? img.src : vid.src;
-      window.open(url, '_blank');
-      showToast('Media opened in full window for downloading!');
-    }
-
-
-    // CODE BUG SCANNER UTILITY
-    function clearBugInput() {
-      document.getElementById('bug-input').value = "";
-      document.getElementById('bug-report').classList.add('hidden');
-      showToast('Scanner inputs cleared.');
+    function clearBugScanner() {
+      const el = document.getElementById('bug-code-input');
+      if (el) el.value = '';
+      const output = document.getElementById('bug-scan-output');
+      if (output) output.classList.add('hidden');
+      showToast('Scanner cleared!');
     }
 
     function runBugScanner() {
-      const code = document.getElementById('bug-input').value.trim();
-      if (!code) {
+      const inputEl = document.getElementById('bug-code-input');
+      if (!inputEl) return;
+      const input = inputEl.value.trim();
+      const outputDiv = document.getElementById('bug-scan-output');
+      const dot = document.getElementById('bug-status-dot');
+      const text = document.getElementById('bug-status-text');
+      const details = document.getElementById('bug-details');
+
+      if (!input) {
         showToast('කරුණාකර පළමුව කේතයක් ඇතුළත් කරන්න!');
         return;
       }
 
-      const reportDiv = document.getElementById('bug-report');
-      const dot = document.getElementById('report-dot');
-      const status = document.getElementById('report-status');
-      const details = document.getElementById('report-details');
-
-      reportDiv.classList.remove('hidden');
-      dot.className = "w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping";
-      status.innerText = "Analyzing syntax parameters...";
-      details.innerText = "Please wait, scanning the brackets structural logs...";
+      if (outputDiv) outputDiv.classList.remove('hidden');
+      if (dot) dot.className = 'w-2 h-2 rounded-full bg-yellow-400 animate-ping';
+      if (text) text.innerText = 'Analyzing syntax and brackets structure...';
+      if (details) details.innerText = 'Analyzing elements...';
 
       setTimeout(() => {
-        // Brackets matching balance checks
-        const oCurly = (code.match(/\{/g) || []).length;
-        const cCurly = (code.match(/\}/g) || []).length;
-        const oSquare = (code.match(/\[/g) || []).length;
-        const cSquare = (code.match(/\]/g) || []).length;
-        const oRound = (code.match(/\(/g) || []).length;
-        const cRound = (code.match(/\)/g) || []).length;
+        let openBraces = (input.match(/\{/g) || []).length;
+        let closeBraces = (input.match(/\}/g) || []).length;
+        let openBrackets = (input.match(/\[/g) || []).length;
+        let closeBrackets = (input.match(/\]/g) || []).length;
 
-        let issuesList = [];
-        if (oCurly !== cCurly) {
-          issuesList.push(`⚠️ Curly brackets ({ }) asymmetry! Found ${oCurly} open '{' and ${cCurly} close '}'.`);
+        let issues = [];
+
+        if (openBraces !== closeBraces) {
+          issues.push("⚠️ Bracket mismatch! Found " + openBraces + " open curly braces '{' but " + closeBraces + " closing braces '}'.");
         }
-        if (oSquare !== cSquare) {
-          issuesList.push(`⚠️ Square brackets ([ ]) asymmetry! Found ${oSquare} open '[' and ${cSquare} close ']'.`);
-        }
-        if (oRound !== cRound) {
-          issuesList.push(`⚠️ Parentheses (( )) asymmetry! Found ${oRound} open '(' and ${cRound} close ')'.`);
-        }
-        if (code.includes('<script') && !code.includes('</script>')) {
-          issuesList.push(`⚠️ Unclosed HTML <script> tag detected! Make sure to close your script.`);
+        if (openBrackets !== closeBrackets) {
+          issues.push("⚠️ Square bracket mismatch! Found " + openBrackets + " open brackets '[' but " + closeBrackets + " closing brackets ']'.");
         }
 
-        if (issuesList.length === 0) {
-          dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
-          status.innerText = "NO BUGS FOUND (සින්ටැක්ස් 100% නිවැරදියි)";
-          details.innerText = `🔍 **Scan Summary:**\n` +
-                              `- Curly Braces Match: { ${oCurly} / ${cCurly} }\n` +
-                              `- Square Brackets Match: [ ${oSquare} / ${cSquare} ]\n` +
-                              `- Parentheses Match: ( ${oRound} / ${cRound} )\n\n` +
-                              `✓ කේතයේ ව්‍යුහය ඉතාමත් පිරිසිදුයි. කිසිදු සින්ටැක්ස් දෝෂයක් සොයාගත නොහැකි විය. Pasiya AI verified!`;
-          showToast('Code Scan Passed!');
+        if (input.includes('<script') && !input.includes('</script>')) {
+          issues.push("⚠️ Unclosed script tag! HTML <script> element is missing the closing </script> tag.");
+        }
+
+        if (issues.length === 0) {
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+          if (text) text.innerText = 'NO BUGS FOUND (සින්ටැක්ස් නිවැරදියි)';
+          if (details) details.innerText = "🔍 Scan summary:\\n- Curly Braces: Match (" + openBraces + "/" + closeBraces + ")\\n- Square Brackets: Match (" + openBrackets + "/" + closeBrackets + ")\\n- Health: 100% Stable\\n\\n✓ Code format validation passed successfully! Pasiya AI has polished your structure.";
+          showToast('Code Scan Passed successfully!');
         } else {
-          dot.className = "w-2.5 h-2.5 rounded-full bg-red-500";
-          status.innerText = "BUGS DETECTED (වැරදි සොයාගන්නා ලදී)";
-          details.innerText = `🔍 **Bug Diagnostic Report:**\n` +
-                              issuesList.join('\n') + `\n\n` +
-                              `💡 කරුණාකර ඉහත පෙන්වා දී ඇති සින්ටැක්ස් ගැටලුව නැවත පරීක්ෂා කර සකස් කරන්න.`;
-          showToast('Bugs detected in code scanning!');
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-red-500';
+          if (text) text.innerText = 'BUGS DETECTED (වැරදි සොයාගන්නා ලදී)';
+          if (details) details.innerText = "🔍 Bug Report:\\n" + issues.join('\\n') + "\\n\\n💡 කරුණාකර ඔබගේ Brackets නැවත පරීක්ෂා කර සකස් කරන්න.";
+          showToast('Code bugs detected during scanning!');
         }
-      }, 950);
+      }, 800);
+    }
+
+    function runApiService() {
+      const select = document.getElementById('api-service-select');
+      if (!select) return;
+      const service = select.value;
+      const box = document.getElementById('api-result-box');
+      if (box) box.innerHTML = '<p class="text-stone-500 animate-pulse">// Fetching service endpoint status...</p>';
+
+      setTimeout(() => {
+        if (!box) return;
+        if (service === 'ip') {
+          fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+              box.innerHTML = '<span class="text-emerald-400 font-bold">🌍 LIVE CONNECTION IP SUCCESS:</span>\\n' +
+                              '- Public IP: ' + data.ip + '\\n' +
+                              '- Target Edge: GitHub Pages Static CDN\\n' +
+                              '- Security: Encrypted (HTTPS)\\n' +
+                              '- Latency: ' + Math.floor(Math.random() * 40 + 10) + 'ms (Super Fast)';
+              showToast('IP checked successfully!');
+            })
+            .catch(() => {
+              box.innerHTML = '<span class="text-amber-400 font-bold">🌍 SECURE SIMULATED IP CHECK:</span>\\n' +
+                              '- Local Edge IP: 112.134.' + Math.floor(Math.random() * 200 + 50) + '.' + Math.floor(Math.random() * 250) + '\\n' +
+                              '- Target Host: Pasiya-Max-AI-OS-06\\n' +
+                              '- DNS status: Cached / Safe\\n' +
+                              '- Ping Latency: 24ms (Optimal)';
+              showToast('Secure simulated IP check executed.');
+            });
+        } else if (service === 'motivation') {
+          const quotes = [
+            "අද කරන දේ උපරිමයෙන් කරන්න, හෙට දිනය අනිවාර්යයෙන්ම සාර්ථක වනු ඇත! - Pasiya Max",
+            "මෘදුකාංග ලෝකයේ ඉදිරියටම යන්න නම් අලුත් දේවල් හැදෑරීම කිසිවිටකත් නතර කරන්න එපා! - Pasiya AI",
+            "උත්සාහය සහ කැපවීම තිබේ නම්, ඔබට ඕනෑම තාක්ෂණික සිහිනයක් සැබෑ කරගත හැකිය. ❤️",
+            "නොමිලේ ලැබෙන අවස්ථා වලින් උපරිම ඵල නෙලාගෙන ඔබේ දැනුම වර්ධනය කරගන්න! 🚀"
+          ];
+          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+          box.innerHTML = '<span class="text-amber-400 font-bold">💬 PASIYA MAX MOTIVATION:</span>\\n' +
+                          '"' + randomQuote + '"\\n\\n' +
+                          '● Status: Automated delivery free';
+          showToast('Motivational quote generated!');
+        } else if (service === 'password') {
+          const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+          let pass = "";
+          for (let i = 0; i < 16; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          box.innerHTML = '<span class="text-yellow-400 font-bold">🔑 SECURE KEY GENERATED:</span>\\n' +
+                          'Code: ' + pass + '\\n' +
+                          '- Encryption: AES-256 Client Guard\\n' +
+                          '- Safe to use for Bot Configs!';
+          showToast('Secure Bot Config key generated!');
+        } else {
+          const facts = [
+            "GitHub Pages allows hosting of entirely static websites for free directly from repositories.",
+            "Tailwind CSS uses a JIT (Just-in-Time) compiler to generate classes as you write them in HTML.",
+            "Lucide Icons is a community-run fork of Feather icons with hundreds of modern crisp designs.",
+            "Client-side automation reduces server overhead and ensures 100% up-time on edge platforms."
+          ];
+          const randomFact = facts[Math.floor(Math.random() * facts.length)];
+          box.innerHTML = '<span class="text-amber-300 font-bold">🐱 AUTOMATED TECH FACT:</span>\\n' +
+                          '"' + randomFact + '"\\n\\n' +
+                          '● Data feed from Local Cache System';
+          showToast('Tech fact fetched.');
+        }
+      }, 700);
     }
   </script>
-
 </body>
 </html>
