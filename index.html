@@ -30,7 +30,29 @@
     }
   </script>
 
-  <style>
+   <style>
+    :root {
+      --color-bg-app: #090704;
+      --color-bg-card: #131008;
+      --color-border-card: rgba(245, 158, 11, 0.25);
+      --color-text-primary: #f7e8cf;
+      --color-text-secondary: #a8a29e;
+      --color-bg-inner: #070503;
+      --color-border-inner: rgba(245, 158, 11, 0.1);
+      --color-white: #ffffff;
+      --color-indicator-bg: rgba(245, 158, 11, 0.2);
+    }
+    html.light {
+      --color-bg-app: #fcfbfa;
+      --color-bg-card: #ffffff;
+      --color-border-card: #e5e2db;
+      --color-text-primary: #1c1917;
+      --color-text-secondary: #57534e;
+      --color-bg-inner: #f5f4f0;
+      --color-border-inner: #e5e2db;
+      --color-white: #0f172a;
+      --color-indicator-bg: #f5f5f4;
+    }
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -69,7 +91,7 @@
     }
   </style>
 </head>
-<body class="bg-[#090704] text-[#f7e8cf] min-h-screen p-4 sm:p-6 md:p-8 flex flex-col gap-6 selection:bg-amber-600 selection:text-white">
+<body class="bg-[var(--color-bg-app)] text-[var(--color-text-primary)] min-h-screen p-4 sm:p-6 md:p-8 flex flex-col gap-6 selection:bg-amber-600 selection:text-white">
 
   <!-- Main Header -->
   <header class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-500/20 pb-6 gap-4">
@@ -93,7 +115,12 @@
       </div>
     </div>
     
-    <div class="flex items-center justify-between sm:justify-end gap-6 border-t sm:border-t-0 pt-3 sm:pt-0 border-amber-500/10 sm:border-none">
+    <div class="flex items-center justify-between sm:justify-end gap-3 border-t sm:border-t-0 pt-3 sm:pt-0 border-amber-500/10 sm:border-none">
+      <!-- Light / Dark Theme Switcher Button -->
+      <button onclick="toggleTheme()" class="p-2.5 bg-[var(--color-bg-inner)] border border-[var(--color-border-card)] rounded-xl text-amber-500 hover:text-amber-400 hover:bg-[var(--color-bg-card)] transition-all cursor-pointer shadow-md flex items-center justify-center shrink-0" title="Toggle Light/Dark Theme">
+        <i data-lucide="sun" id="theme-toggle-icon" class="w-4 h-4 text-amber-400"></i>
+      </button>
+
       <div class="flex items-center gap-2 bg-[#1b1206] px-3.5 py-1.5 rounded-xl border border-amber-500/30 text-xs text-amber-200 shadow-md">
         <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
         <span class="font-bold">Pasiya AI active and free</span>
@@ -492,38 +519,38 @@
 
     // CHATBOT INTERACTIVE SYSTEM
     const CHAT_RESPONSES = {
-      social: "📲 **පසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල ගිණුම් සබැඳි (Official Social Links):**\\n\\n" +
-              "1️⃣ 📸 Instagram: https://www.instagram.com/pasindu5598\\n" +
-              "2️⃣ 📘 Facebook: https://www.facebook.com/share/18xRGhYVUo/\\n" +
-              "3️⃣ 🌐 Blog: https://mamageblog.blogspot.com\\n" +
-              "4️⃣ ▶️ YouTube: https://youtube.com/@pasya\\n" +
-              "5️⃣ 💬 WhatsApp Channel: https://whatsapp.com/channel/0029VaPASIAMAX\\n" +
-              "6️⃣ 💬 WhatsApp Group: https://chat.whatsapp.com/KjhsWakBQoUI4SEEvZXAsO\\n" +
-              "7️⃣ 📱 Imo: https://s.imoim.net/KNdKwX?ISCI=001102\\n" +
-              "8️⃣ 🎵 TikTok: https://tiktok.com/@pasindudananjaya619\\n" +
-              "9️⃣ 💼 LinkedIn Profile: https://linkedin.com/in/pasindu-dananjaya-41044831b\\n" +
-              "🔟 💼 LinkedIn Group: https://www.linkedin.com/groups/22101008\\n" +
-              "1️⃣1️⃣ 🐦 X / Twitter: https://x.com/PasinduDan98554\\n" +
-              "1️⃣2️⃣ 💜 Viber Channel: https://invite.viber.com/?g2=AQBWlEwa%2BDKVDFaaTbesR5FqD2IQZhFjhhQdN%2Fvdsaml9xVUCL8RnDHcFy6kno0U\\n" +
-              "1️⃣3️⃣ 📢 Telegram Channel: https://t.me/goldenbotmdchannel\\n\\n" +
+      social: "📲 **පසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල ගිණුම් සබැඳි (Official Social Links):**\n\n" +
+              "1️⃣ 📸 Instagram: https://www.instagram.com/pasindu5598\n" +
+              "2️⃣ 📘 Facebook: https://www.facebook.com/share/18xRGhYVUo/\n" +
+              "3️⃣ 🌐 Blog: https://mamageblog.blogspot.com\n" +
+              "4️⃣ ▶️ YouTube: https://youtube.com/@pasya\n" +
+              "5️⃣ 💬 WhatsApp Channel: https://whatsapp.com/channel/0029VaPASIAMAX\n" +
+              "6️⃣ 💬 WhatsApp Group: https://chat.whatsapp.com/KjhsWakBQoUI4SEEvZXAsO\n" +
+              "7️⃣ 📱 Imo: https://s.imoim.net/KNdKwX?ISCI=001102\n" +
+              "8️⃣ 🎵 TikTok: https://tiktok.com/@pasindudananjaya619\n" +
+              "9️⃣ 💼 LinkedIn Profile: https://linkedin.com/in/pasindu-dananjaya-41044831b\n" +
+              "🔟 💼 LinkedIn Group: https://www.linkedin.com/groups/22101008\n" +
+              "1️⃣1️⃣ 🐦 X / Twitter: https://x.com/PasinduDan98554\n" +
+              "1️⃣2️⃣ 💜 Viber Channel: https://invite.viber.com/?g2=AQBWlEwa%2BDKVDFaaTbesR5FqD2IQZhFjhhQdN%2Fvdsaml9xVUCL8RnDHcFy6kno0U\n" +
+              "1️⃣3️⃣ 📢 Telegram Channel: https://t.me/goldenbotmdchannel\n\n" +
               "❤️ කරුණාකර අපගේ චැනල් සබ්ස්ක්‍රයිබ් කර සපෝර්ට් කරන්න!",
       
-      owner: "👤 **පසිඳු දනංජය (Pasiya Max) කවුද?**\\n\\n" +
-             "පසිඳු දනංජය (Pasiya Max) යනු තාක්ෂණික සහ මෘදුකාංග සංවර්ධන ලෝකයේ ශ්‍රී ලාංකීය සන්නාමයකි. \\n\\n" +
-             "ඔහු විවිධ ස්වයංක්‍රීය බොට් වරුන් (Automated Bots), වෙබ් අඩවි සහ මෙවලම් සංවර්ධනය කරමින් පරිශීලකයින්ට සහාය වේ. \\n\\n" +
-             "ඔහුගේ යූටියුබ් නාලිකාව (@pasya) සහ වට්ස්ඇප් සමූහ ඔස්සේ ඔබ සැමට තාක්ෂණික උපකාර සපයනු ලැබේ. ❤️\\n\\n" +
-             "📍 Colombo, Sri Lanka (Kotte)\\n" +
-             "📧 pasindudananjaya92@gmail.com\\n" +
+      owner: "👤 **පසිඳු දනංජය (Pasiya Max) කවුද?**\n\n" +
+             "පසිඳු දනංජය (Pasiya Max) යනු තාක්ෂණික සහ මෘදුකාංග සංවර්ධන ලෝකයේ ශ්‍රී ලාංකීය සන්නාමයකි. \n\n" +
+             "ඔහු විවිධ ස්වයංක්‍රීය බොට් වරුන් (Automated Bots), වෙබ් අඩවි සහ මෙවලම් සංවර්ධනය කරමින් පරිශීලකයින්ට සහාය වේ. \n\n" +
+             "ඔහුගේ යූටියුබ් නාලිකාව (@pasya) සහ වට්ස්ඇප් සමූහ ඔස්සේ ඔබ සැමට තාක්ෂණික උපකාර සපයනු ලැබේ. ❤️\n\n" +
+             "📍 Colombo, Sri Lanka (Kotte)\n" +
+             "📧 pasindudananjaya92@gmail.com\n" +
              "📞 +94 75 957 0743 / +94 70 775 1710",
              
-      github: "🛠️ **මෙම පිටුව ඔබගේම GitHub Pages එකට දාගන්නේ කෙසේද?**\\n\\n" +
-              "1. ඔබගේ GitHub ගිණුමේ **Pasiya-Max-AI-OS-06** නමින් නව Repository එකක් සාදන්න.\\n" +
-              "2. එහි **index.html** නමින් නව ගොනුවක් සාදා මෙම මුළු කේතයම පේස්ට් කර සේව් කරන්න.\\n" +
-              "3. Settings > Pages වෙත ගොස් Deploy on main branch සක්‍රිය කරන්න.\\n" +
+      github: "🛠️ **මෙම පිටුව ඔබගේම GitHub Pages එකට දාගන්නේ කෙසේද?**\n\n" +
+              "1. ඔබගේ GitHub ගිණුමේ **Pasiya-Max-AI-OS-06** නමින් නව Repository එකක් සාදන්න.\n" +
+              "2. එහි **index.html** නමින් නව ගොනුවක් සාදා මෙම මුළු කේතයම පේස්ට් කර සේව් කරන්න.\n" +
+              "3. Settings > Pages වෙත ගොස් Deploy on main branch සක්‍රිය කරන්න.\n" +
               "4. තත්පර 30කින් ඔබගේ වෙබ් අඩවිය ලයිව් වේවි! 🚀",
 
-      vitals: "⚡ **Vitals optimization සාර්ථකයි!**\\n\\n" +
-              "Pasiya AI local CPU cache සහ dynamic RAM blocks සාර්ථකව නිදහස් කරන ලදී. \\n" +
+      vitals: "⚡ **Vitals optimization සාර්ථකයි!**\n\n" +
+              "Pasiya AI local CPU cache සහ dynamic RAM blocks සාර්ථකව නිදහස් කරන ලදී. \n" +
               "කිසිදු ගෙවීමකින් තොරව මෙම පද්ධතිය 100% ක්‍රියාකාරීත්වයෙන් පවතී. ● PIPELINE OPTIMAL"
     };
 
@@ -533,6 +560,7 @@
       }
     }
 
+    // Quick Button Presets
     function clickPreset(type) {
       appendUserMessage(type === 'social' ? '📲 Social Links' : 
                         type === 'owner' ? '👤 Who is Pasiya Max?' : 
@@ -562,7 +590,7 @@
         const lowerText = text.toLowerCase();
 
         if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('helo') || lowerText.includes('හලෝ') || lowerText.includes('ආයුබෝවන්') || lowerText.includes('kohomada') || lowerText.includes('කොහොමද') || lowerText.includes('හායි')) {
-          reply = "ආයුබෝවන්! මම Pasiya AI. පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයායි. මට ඔබට අද උදව් කළ හැක්කේ කෙසේද? 😊\\n\\nපසිඳුගේ සමාජ ජාල ගිණුම් වල ලින්ක් ලබා ගැනීමට **Preset Buttons** ක්ලික් කරන්න නැතහොත් මගෙන් ඕනෑම දෙයක් අසන්න.";
+          reply = "ආයුබෝවන්! මම Pasiya AI. පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයායි. මට ඔබට අද උදව් කළ හැක්කේ කෙසේද? 😊\n\nපසිඳුගේ සමාජ ජාල ගිණුම් වල ලින්ක් ලබා ගැනීමට **Preset Buttons** ක්ලික් කරන්න නැතහොත් මගෙන් ඕනෑම දෙයක් අසන්න.";
         } else if (lowerText.includes('link') || lowerText.includes('social') || lowerText.includes('යූටියුබ්') || lowerText.includes('youtube') || lowerText.includes('whatsapp') || lowerText.includes('fb') || lowerText.includes('facebook') || lowerText.includes('ලින්ක්') || lowerText.includes('tiktok') || lowerText.includes('insta')) {
           reply = CHAT_RESPONSES.social;
         } else if (lowerText.includes('pasiya') || lowerText.includes('pasindu') || lowerText.includes('owner') || lowerText.includes('කවුද') || lowerText.includes('max') || lowerText.includes('පසිඳු')) {
@@ -570,18 +598,18 @@
         } else if (lowerText.includes('github') || lowerText.includes('deploy') || lowerText.includes('pages') || lowerText.includes('setup') || lowerText.includes('හදන්නෙ') || lowerText.includes('code') || lowerText.includes('කෝඩ්')) {
           reply = CHAT_RESPONSES.github;
         } else if (lowerText.includes('free') || lowerText.includes('panel') || lowerText.includes('පැනල්') || lowerText.includes('නොමිලේ') || lowerText.includes('වැඩසටහන්') || lowerText.includes('tool') || lowerText.includes('බග්') || lowerText.includes('bug')) {
-          reply = "අපගේ පද්ධතිය සතුව **නොමිලේ ධාවනය වන සුපිරි පැනල් සහ බග් සෝදන මෙවලම්** රැසක් ඇත!\\n\\n" +
-                  "1️⃣ **Pasiya Bug Scanner & Formatter** (පහලින් ඔබට කෝඩ් එක දමා පරික්ෂා කල හැක)\\n\\n" +
-                  "2️⃣ **Free API Endpoint Simulator & Live Tester** (විවිධ API නොමිලේ ක්‍රියාත්මක කර බැලීමේ හැකියාව)\\n\\n" +
-                  "3️⃣ **Live System Vitals Optimizer** (ඔබගේ බ්‍රවුසරයේ ධාවන වේගය පරීක්ෂා කරන වේග මීටරය)\\n\\n" +
+          reply = "අපගේ පද්ධතිය සතුව **නොමිලේ ධාවනය වන සුපිරි පැනල් සහ බග් සෝදන මෙවලම්** රැසක් ඇත!\n\n" +
+                  "1️⃣ **Pasiya Bug Scanner & Formatter** (පහලින් ඔබට කෝඩ් එක දමා පරික්ෂා කල හැක)\n\n" +
+                  "2️⃣ **Free API Endpoint Simulator & Live Tester** (විවිධ API නොමිලේ ක්‍රියාත්මක කර බැලීමේ හැකියාව)\n\n" +
+                  "3️⃣ **Live System Vitals Optimizer** (ඔබගේ බ්‍රවුසරයේ ධාවන වේගය පරීක්ෂා කරන වේග මීටරය)\n\n" +
                   "පහත ඇති Panel කොටසින් ඔබට මේවා භාවිතා කල හැක! 🚀";
         } else if (lowerText.includes('phone') || lowerText.includes('number') || lowerText.includes('අංක') || lowerText.includes('නොම්මර') || lowerText.includes('දුරකථන') || lowerText.includes('contact') || lowerText.includes('947')) {
-          reply = "📞 **පසිඳු දනංජය (Pasiya Max) ගේ නිල දුරකථන අංක (Admin Contacts):**\\n\\n1️⃣ **+94 75 957 0743** (WhatsApp & Imo Active)\\n2️⃣ **+94 70 775 1710** (Personal & Call Active)\\n\\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\\n📍 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා (ශ්‍රී ජයවර්ධනපුර කෝට්ටේ)\\n\\nඔබට ඕනෑම ගැටලුවක් සඳහා මෙම අංක ඔස්සේ පසිඳු මහතාව සෘජුව සම්බන්ධ කරගත හැක! ❤️";
+          reply = "📞 **පසිඳු දනංජය (Pasiya Max) ගේ නිල දුරකථන අංක (Admin Contacts):**\n\n1️⃣ **+94 75 957 0743** (WhatsApp & Imo Active)\n2️⃣ **+94 70 775 1710** (Personal & Call Active)\n\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\n📍 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා (ශ්‍රී ජයවර්ධනපුර කෝට්ටේ)\n\nඔබට ඕනෑම ගැටලුවක් සඳහා මෙම අංක ඔස්සේ පසිඳු මහතාව සෘජුව සම්බන්ධ කරගත හැක! ❤️";
         } else if (lowerText.includes('email') || lowerText.includes('ඊමේල්') || lowerText.includes('mail') || lowerText.includes('address') || lowerText.includes('ලිපිනය') || lowerText.includes('colombo') || lowerText.includes('කොළඹ')) {
-          reply = "📍 **ලිපිනය සහ සම්බන්ධතා තොරතුරු:**\\n\\n👤 **නිර්මාතෘ:** පසිඳු දනංජය (Pasiya Max)\\n🏠 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා, ශ්‍රී ජයවර්ධනපුර කෝට්ටේ\\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\\n📞 **දුරකථන:** +94 75 957 0743 / +94 70 775 1710\\n\\nනොමිලේ ධාවනය වන පැනල් සහ බොට් සේවා පිළිබඳ විමසීම් සඳහා සම්බන්ධ කරගන්න. 🌟";
+          reply = "📍 **ලිපිනය සහ සම්බන්ධතා තොරතුරු:**\n\n👤 **නිර්මාතෘ:** පසිඳු දනංජය (Pasiya Max)\n🏠 **ස්ථානය:** කොළඹ, ශ්‍රී ලංකා, ශ්‍රී ජයවර්ධනපුර කෝට්ටේ\n📧 **ඊමේල්:** pasindudananjaya92@gmail.com\n📞 **දුරකථන:** +94 75 957 0743 / +94 70 775 1710\n\nනොමිලේ ධාවනය වන පැනල් සහ බොට් සේවා පිළිබඳ විමසීම් සඳහා සම්බන්ධ කරගන්න. 🌟";
         } else {
-          reply = "ස්තූතියි ඔබගේ පණිවිඩයට! ❤️ මම **Pasiya AI** සහායකයා ලෙස සැමවිටම ඔබගේ සහයට සූදානම්!\\n\\n" +
-                  "ඔබගේ ප්‍රශ්නය: \\"" + text + "\\"\\n\\n" +
+          reply = "ස්තූතියි ඔබගේ පණිවිඩයට! ❤️ මම **Pasiya AI** සහායකයා ලෙස සැමවිටම ඔබගේ සහයට සූදානම්!\n\n" +
+                  "ඔබ විමසූ දෙය: '" + text + "'\n\n" +
                   "පසිඳු දනංජය (Pasiya Max) ගේ නිල සමාජ ජාල සබැඳි ලබා ගැනීමට ඉහළ ඇති **📲 Social Links** ක්ලික් කරන්න. ඔහුගේ යූටියුබ් නාලිකාව (@pasya) subscribe කර අප සමඟ රැඳී සිටින්න!";
         }
 
@@ -649,18 +677,19 @@
       container.scrollTop = container.scrollHeight;
     }
 
-    // Remove typing
     function removeBotTyping() {
       const el = document.getElementById('bot-typing-indicator');
       if (el) el.remove();
     }
 
     function formatBotMessage(text) {
-      const urlRegex = /(https?://[^s]+)/g;
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
       return text.replace(urlRegex, function(url) {
         let cleanUrl = url;
-        if (cleanUrl.endsWith('\\n')) {
-          cleanUrl = cleanUrl.substring(0, cleanUrl.length - 3);
+        if (cleanUrl.endsWith('\n')) {
+          cleanUrl = cleanUrl.substring(0, cleanUrl.length - 1);
+        } else if (cleanUrl.endsWith('\\n')) {
+          cleanUrl = cleanUrl.substring(0, cleanUrl.length - 2);
         }
         return '<a href="' + cleanUrl + '" target="_blank" class="text-amber-400 hover:text-amber-300 font-bold underline inline-flex items-center gap-1 bg-[#1c1409] px-2 py-0.5 rounded border border-amber-500/20 break-all my-0.5 select-all">' + cleanUrl + ' <i data-lucide="external-link" class="w-3 h-3 shrink-0 inline"></i></a>';
       });
@@ -749,12 +778,12 @@
         if (issues.length === 0) {
           if (dot) dot.className = 'w-2 h-2 rounded-full bg-emerald-500';
           if (text) text.innerText = 'NO BUGS FOUND (සින්ටැක්ස් නිවැරදියි)';
-          if (details) details.innerText = "🔍 Scan summary:\\n- Curly Braces: Match (" + openBraces + "/" + closeBraces + ")\\n- Square Brackets: Match (" + openBrackets + "/" + closeBrackets + ")\\n- Health: 100% Stable\\n\\n✓ Code format validation passed successfully! Pasiya AI has polished your structure.";
+          if (details) details.innerText = "🔍 Scan summary:\n- Curly Braces: Match (" + openBraces + "/" + closeBraces + ")\n- Square Brackets: Match (" + openBrackets + "/" + closeBrackets + ")\n- Health: 100% Stable\n\n✓ Code format validation passed successfully! Pasiya AI has polished your structure.";
           showToast('Code Scan Passed successfully!');
         } else {
           if (dot) dot.className = 'w-2 h-2 rounded-full bg-red-500';
           if (text) text.innerText = 'BUGS DETECTED (වැරදි සොයාගන්නා ලදී)';
-          if (details) details.innerText = "🔍 Bug Report:\\n" + issues.join('\\n') + "\\n\\n💡 කරුණාකර ඔබගේ Brackets නැවත පරීක්ෂා කර සකස් කරන්න.";
+          if (details) details.innerText = "🔍 Bug Report:\n" + issues.join('\n') + "\n\n💡 කරුණාකර ඔබගේ Brackets නැවත පරීක්ෂා කර සකස් කරන්න.";
           showToast('Code bugs detected during scanning!');
         }
       }, 800);
@@ -773,18 +802,18 @@
           fetch('https://api.ipify.org?format=json')
             .then(res => res.json())
             .then(data => {
-              box.innerHTML = '<span class="text-emerald-400 font-bold">🌍 LIVE CONNECTION IP SUCCESS:</span>\\n' +
-                              '- Public IP: ' + data.ip + '\\n' +
-                              '- Target Edge: GitHub Pages Static CDN\\n' +
-                              '- Security: Encrypted (HTTPS)\\n' +
+              box.innerHTML = '<span class="text-emerald-400 font-bold">🌍 LIVE CONNECTION IP SUCCESS:</span>\n' +
+                              '- Public IP: ' + data.ip + '\n' +
+                              '- Target Edge: GitHub Pages Static CDN\n' +
+                              '- Security: Encrypted (HTTPS)\n' +
                               '- Latency: ' + Math.floor(Math.random() * 40 + 10) + 'ms (Super Fast)';
               showToast('IP checked successfully!');
             })
             .catch(() => {
-              box.innerHTML = '<span class="text-amber-400 font-bold">🌍 SECURE SIMULATED IP CHECK:</span>\\n' +
-                              '- Local Edge IP: 112.134.' + Math.floor(Math.random() * 200 + 50) + '.' + Math.floor(Math.random() * 250) + '\\n' +
-                              '- Target Host: Pasiya-Max-AI-OS-06\\n' +
-                              '- DNS status: Cached / Safe\\n' +
+              box.innerHTML = '<span class="text-amber-400 font-bold">🌍 SECURE SIMULATED IP CHECK:</span>\n' +
+                              '- Local Edge IP: 112.134.' + Math.floor(Math.random() * 200 + 50) + '.' + Math.floor(Math.random() * 250) + '\n' +
+                              '- Target Host: Pasiya-Max-AI-OS-06\n' +
+                              '- DNS status: Cached / Safe\n' +
                               '- Ping Latency: 24ms (Optimal)';
               showToast('Secure simulated IP check executed.');
             });
@@ -796,8 +825,8 @@
             "නොමිලේ ලැබෙන අවස්ථා වලින් උපරිම ඵල නෙලාගෙන ඔබේ දැනුම වර්ධනය කරගන්න! 🚀"
           ];
           const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-          box.innerHTML = '<span class="text-amber-400 font-bold">💬 PASIYA MAX MOTIVATION:</span>\\n' +
-                          '"' + randomQuote + '"\\n\\n' +
+          box.innerHTML = '<span class="text-amber-400 font-bold">💬 PASIYA MAX MOTIVATION:</span>\n' +
+                          '"' + randomQuote + '"\n\n' +
                           '● Status: Automated delivery free';
           showToast('Motivational quote generated!');
         } else if (service === 'password') {
@@ -806,9 +835,9 @@
           for (let i = 0; i < 16; i++) {
             pass += chars.charAt(Math.floor(Math.random() * chars.length));
           }
-          box.innerHTML = '<span class="text-yellow-400 font-bold">🔑 SECURE KEY GENERATED:</span>\\n' +
-                          'Code: ' + pass + '\\n' +
-                          '- Encryption: AES-256 Client Guard\\n' +
+          box.innerHTML = '<span class="text-yellow-400 font-bold">🔑 SECURE KEY GENERATED:</span>\n' +
+                          'Code: ' + pass + '\n' +
+                          '- Encryption: AES-256 Client Guard\n' +
                           '- Safe to use for Bot Configs!';
           showToast('Secure Bot Config key generated!');
         } else {
@@ -819,12 +848,27 @@
             "Client-side automation reduces server overhead and ensures 100% up-time on edge platforms."
           ];
           const randomFact = facts[Math.floor(Math.random() * facts.length)];
-          box.innerHTML = '<span class="text-amber-300 font-bold">🐱 AUTOMATED TECH FACT:</span>\\n' +
-                          '"' + randomFact + '"\\n\\n' +
+          box.innerHTML = '<span class="text-amber-300 font-bold">🐱 AUTOMATED TECH FACT:</span>\n' +
+                          '"' + randomFact + '"\n\n' +
                           '● Data feed from Local Cache System';
           showToast('Tech fact fetched.');
         }
       }, 700);
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-toggle-icon');
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        if (icon) icon.setAttribute('data-lucide', 'sun');
+      } else {
+        html.classList.add('light');
+        if (icon) icon.setAttribute('data-lucide', 'moon');
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
   </script>
 </body>
