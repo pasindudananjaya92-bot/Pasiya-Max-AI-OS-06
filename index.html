@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pasiya AI - Command Center (OS-05)</title>
+  <title>Pasiya AI - Automated GitHub Bot Control Hub</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Fonts -->
+  <!-- Inter & JetBrains Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    /* Scrollbar */
+    /* Scrollbar design */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -52,13 +52,13 @@
         <h1 class="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2 flex-wrap">
           Pasiya AI <span class="text-indigo-400 font-normal">Command Center</span>
           <span class="text-[10px] font-mono bg-indigo-500/10 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/20">
-            🤖 OS-05 Edition
+            🤖 Static Host Ready
           </span>
         </h1>
         <p class="text-slate-400 text-xs sm:text-sm mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span class="font-mono text-indigo-300">pasindudananjaya92-bot / Pasiya-Max-AI-OS-05</span>
+          <span class="font-mono">pasindudananjaya92-bot / Pasiya-Max-AI-OS-06</span>
           <span class="inline-flex items-center gap-1 text-[11px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-lg text-indigo-300 font-medium">
-            <i data-lucide="globe" class="w-3 h-3 text-sky-400"></i> GitHub Pages Live
+            <i data-lucide="globe" class="w-3 h-3 text-sky-400"></i> GitHub Pages Active
           </span>
         </p>
       </div>
@@ -72,14 +72,14 @@
       <div class="flex flex-col items-end">
         <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">System Status</span>
         <span class="text-emerald-400 font-medium text-sm flex items-center gap-1.5">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span> Active & 100% Free
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span> Active & Free
         </span>
       </div>
     </div>
   </header>
 
   <!-- Main Bento Grid -->
-  <main class="flex-1 grid grid-cols-12 gap-4 sm:gap-6 auto-rows-min">
+  <main class="flex-1 grid grid-cols-12 gap-4 sm:gap-6 auto-rows-min animate-fade-in">
     
     <!-- Welcome Card -->
     <div class="col-span-12 lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between relative overflow-hidden group">
@@ -99,7 +99,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-6 border-t border-slate-800/80">
         <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60">
           <h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Target Repository File</h4>
-          <p class="text-xs font-mono text-indigo-400">Pasiya-Max-AI-OS-05 / index.html</p>
+          <p class="text-xs font-mono text-indigo-400">Pasiya-Max-AI-OS-06 / index.html</p>
         </div>
         <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60">
           <h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Server Location</h4>
@@ -140,7 +140,7 @@
     </div>
 
     <!-- Pasiya AI Chat Assistant (100% Free Interface) -->
-    <div class="col-span-12 lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-xl min-h-[420px]">
+    <div class="col-span-12 lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-xl min-h-[400px]">
       <div class="space-y-4 flex flex-col h-full justify-between">
         
         <!-- Chat Title -->
@@ -185,6 +185,7 @@
 
         <!-- Chat History Box -->
         <div id="chat-messages-container" class="flex-1 min-h-[220px] max-h-[300px] overflow-y-auto bg-slate-950 border border-slate-800/60 rounded-xl p-3.5 space-y-3 font-sans text-xs scrollbar-thin mt-2.5">
+          <!-- Initial bot welcome message -->
           <div class="flex items-start gap-2.5">
             <div class="w-6 h-6 rounded bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center shrink-0">
               <i data-lucide="bot" class="w-3.5 h-3.5 text-indigo-400"></i>
@@ -208,7 +209,7 @@
           />
           <button 
             onclick="sendChatMessage()"
-            class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer animate-pulse"
+            class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer"
           >
             <i data-lucide="send" class="w-3.5 h-3.5"></i> Send
           </button>
@@ -223,8 +224,8 @@
           <div class="flex items-center gap-2">
             <i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-400"></i>
             <div>
-              <h3 class="text-xs sm:text-sm font-bold text-white">Live Pipeline Tracker</h3>
-              <p class="text-[10px] text-slate-400">ස්වයංක්‍රීය ප්‍රකාශන නල මාර්ගය</p>
+              <h3 class="text-xs sm:text-sm font-bold text-white font-sans">Live Pipeline Tracker</h3>
+              <p class="text-[10px] text-slate-400 font-sans">ස්වයංක්‍රීය ප්‍රකාශන නල මාර්ගය</p>
             </div>
           </div>
           <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">ONLINE</span>
@@ -266,7 +267,7 @@
         </div>
       </div>
 
-      <div class="bg-indigo-950/20 p-3 rounded-xl border border-indigo-500/10 mt-4 text-[10px] text-indigo-300 leading-relaxed">
+      <div class="bg-indigo-950/20 p-3 rounded-xl border border-indigo-500/10 mt-4 text-[10px] text-indigo-300 leading-relaxed font-sans">
         <p class="font-bold text-white flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Security Shield</p>
         <p>Auto-immunity enabled. Free secure static environment provided by GitHub.</p>
       </div>
@@ -274,7 +275,7 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- Footer with official links & URL copy features -->
   <footer class="flex flex-col sm:flex-row items-center justify-between py-6 text-xs text-slate-500 border-t border-slate-800/80 gap-4 mt-auto">
     <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 uppercase tracking-widest font-mono text-[11px]">
       <span id="footer-clock">Session: 14:24:02</span>
@@ -309,6 +310,7 @@
     function refreshVitals() {
       showToast('Optimizing Pasiya AI Local UI Core Engine...');
       setTimeout(() => {
+        // Randomize metrics slightly
         const randomCpu = (Math.random() * 8 + 3).toFixed(1);
         document.getElementById('cpu-load-val').innerText = randomCpu + '%';
         showToast('Engine optimization successfully complete! No keys required.');
@@ -364,7 +366,7 @@
              `ඔහුගේ යූටියුබ් නාලිකාව (@pasya) සහ වට්ස්ඇප් සමූහ ඔස්සේ ඔබ සැමට තාක්ෂණික උපකාර සපයනු ලැබේ. ❤️`,
              
       github: `🛠️ **මෙම පිටුව ඔබගේම GitHub Pages එකට දාගන්නේ කෙසේද?**\n\n` +
-              `1. ඔබගේ GitHub ගිණුමේ **Pasiya-Max-AI-OS-05** නමින් නව Repository එකක් සාදන්න.\n` +
+              `1. ඔබගේ GitHub ගිණුමේ **Pasiya-Max-AI-OS-06** නමින් නව Repository එකක් සාදන්න.\n` +
               `2. එහි **index.html** නමින් නව ගොනුවක් සාදා මෙම මුළු කේතයම පේස්ට් කර සේව් කරන්න.\n` +
               `3. Settings &gt; Pages වෙත ගොස් Deploy on main branch සක්‍රිය කරන්න.\n` +
               `4. තත්පර 30කින් ඔබගේ වෙබ් අඩවිය ලයිව් වේවි! 🚀`,
@@ -469,7 +471,6 @@
       if (el) el.remove();
     }
 
-    // Append Message Helper
     function appendBotMessage(text) {
       const container = document.getElementById('chat-messages-container');
       const div = document.createElement('div');
