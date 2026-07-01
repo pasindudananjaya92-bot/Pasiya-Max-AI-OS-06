@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pasiya Max Golden AI OS 06 - Active Hub</title>
+  <title>Pasiya Max Golden AI OS 06 - Fully Active Hub</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Outfit & Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
@@ -30,7 +25,7 @@
     }
   </script>
 
-   <style>
+  <style>
     :root {
       --color-bg-app: #090704;
       --color-bg-card: #131008;
@@ -62,7 +57,6 @@
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -77,7 +71,6 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #f59e0b;
     }
-    /* Gold Glitter Pulse Animation */
     @keyframes goldGlow {
       0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.15); }
       50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.35); }
@@ -85,39 +78,33 @@
     .gold-glow-card {
       animation: goldGlow 4s infinite ease-in-out;
     }
-    /* Text Glow Effect */
     .text-glow {
       text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+    }
+    .bot-typing {
+      display: inline-block;
+      animation: blink 1.4s infinite;
+    }
+    .bot-typing span {
+      display: inline-block;
+      margin: 0 2px;
+      width: 8px;
+      height: 8px;
+      background: #f59e0b;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite;
+    }
+    .bot-typing span:nth-child(1) { animation-delay: 0s; }
+    .bot-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .bot-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { opacity: 0.5; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-10px); }
     }
   </style>
 </head>
 <body class="bg-[var(--color-bg-app)] text-[var(--color-text-primary)] min-h-screen p-4 sm:p-6 md:p-8 flex flex-col gap-6 selection:bg-amber-600 selection:text-white">
 
-  <!-- ERROR NOTIFICATION SYSTEM -->
-  <div id="error-notification" class="hidden fixed top-4 right-4 z-50 bg-red-900/80 border border-red-500 text-red-100 px-4 py-3 rounded-xl shadow-lg max-w-sm">
-    <div class="flex items-start gap-2">
-      <i data-lucide="alert-circle" class="w-4 h-4 mt-0.5 text-red-400 flex-shrink-0"></i>
-      <div class="flex-1">
-        <p id="error-title" class="font-bold text-sm">Error Detected</p>
-        <p id="error-message" class="text-xs mt-1 text-red-200"></p>
-        <button onclick="dismissError()" class="text-xs text-red-300 hover:text-red-100 mt-2 underline">Dismiss</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- AUTO-REPAIR PANEL -->
-  <div id="repair-panel" class="hidden fixed bottom-4 left-4 z-50 bg-amber-900/90 border border-amber-500 rounded-xl p-4 shadow-lg max-w-xs">
-    <div class="flex items-center gap-2 mb-2">
-      <i data-lucide="tool" class="w-4 h-4 text-amber-400 animate-spin"></i>
-      <p class="font-bold text-amber-200 text-sm">Auto-Repair in Progress</p>
-    </div>
-    <p id="repair-status" class="text-xs text-amber-100">Scanning for issues...</p>
-    <div class="w-full bg-amber-950 h-1.5 rounded-full mt-2 overflow-hidden">
-      <div id="repair-progress" class="bg-amber-400 h-full" style="width: 0%"></div>
-    </div>
-  </div>
-
-  <!-- Main Header -->
   <header class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-500/20 pb-6 gap-4">
     <div class="flex items-center gap-4">
       <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-amber-500/10 shrink-0">
@@ -126,457 +113,440 @@
       <div>
         <h1 class="text-xl sm:text-2xl font-black font-display tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 flex items-center gap-2">
           Pasiya Max Golden AI OS 06
-          <span class="text-[10px] font-mono bg-amber-500/10 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/30">
-            🤖 ACTIVE GOLDEN HUB
+          <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+            ✅ FULLY ACTIVE
           </span>
         </h1>
-        <p class="text-amber-200/60 text-xs sm:text-sm mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans">
-          <span class="font-mono hover:text-amber-300 transition-colors font-bold">pasindudananjaya92-bot / Pasiya-Max-AI-OS-06</span>
-          <span class="inline-flex items-center gap-1 text-[11px] bg-[#1a1307] border border-amber-500/20 px-2.5 py-0.5 rounded-lg text-amber-300 font-bold">
-            <i data-lucide="globe" class="w-3 h-3 text-amber-400"></i> GitHub Pages Live
-          </span>
+        <p class="text-amber-200/60 text-xs sm:text-sm mt-0.5 font-sans">
+          <span class="font-mono font-bold">pasindudananjaya92-bot / Pasiya-Max-AI-OS-06</span>
+          | <span class="text-emerald-400">Gemini AI Connected ✓</span>
         </p>
       </div>
     </div>
     
-    <div class="flex items-center justify-between sm:justify-end gap-3 border-t sm:border-t-0 pt-3 sm:pt-0 border-amber-500/10 sm:border-none">
-      <!-- Light / Dark Theme Switcher Button -->
-      <button onclick="toggleTheme()" class="p-2.5 bg-[var(--color-bg-inner)] border border-[var(--color-border-card)] rounded-xl text-amber-500 hover:text-amber-400 hover:bg-[var(--color-bg-card)] transition-all">
+    <div class="flex items-center justify-between sm:justify-end gap-3">
+      <button onclick="toggleTheme()" class="p-2.5 bg-[var(--color-bg-inner)] border border-[var(--color-border-card)] rounded-xl text-amber-500 hover:text-amber-400 transition-all">
         <i data-lucide="sun" id="theme-toggle-icon" class="w-4 h-4 text-amber-400"></i>
       </button>
-
       <div class="flex items-center gap-2 bg-[#1b1206] px-3.5 py-1.5 rounded-xl border border-amber-500/30 text-xs text-amber-200 shadow-md">
-        <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
-        <span class="font-bold">Pasiya AI active and free</span>
-      </div>
-      <div class="flex flex-col items-end">
-        <span class="text-[10px] uppercase tracking-widest text-amber-500/60 font-semibold">පද්ධති තත්ත්වය</span>
-        <span class="text-amber-400 font-bold text-sm flex items-center gap-1.5 text-glow">
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span> ධාවනය වේ (Live)
-        </span>
+        <i data-lucide="bot" class="w-4 h-4 text-emerald-400"></i>
+        <span class="font-bold">Bot Active & Free</span>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT AREA -->
   <main class="flex-1 grid grid-cols-12 gap-4 sm:gap-6 auto-rows-min">
     
-    <!-- Welcome Panel -->
-    <div class="col-span-12 lg:col-span-8 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 shadow-2xl flex flex-col justify-between relative overflow-hidden group gold-glow-card">
-      <div class="absolute -right-10 -top-10 w-44 h-44 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-all"></div>
-      <div class="space-y-4">
-        <div class="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold tracking-wider uppercase">
-          <i data-lucide="star" class="w-4 h-4 animate-spin text-amber-400" style="animation-duration: 6s"></i> Pasiya AI Active Engine
-        </div>
-        <h2 class="text-xl sm:text-2xl font-black text-white leading-tight font-display text-glow">
-          ඔබගේ නවතම Pasiya Max Golden AI OS 06 වෙබ් අඩවිය සාර්ථකයි! 🌟
-        </h2>
-        <p class="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-2xl font-sans">
-          මෙම පද්ධතිය පූර්ණ නිදහස් සේවාවක් (100% Free Golden Web Engine) ලෙස ක්‍රියාත්මක වන අතර, අවිශ්වාසනීය AI සහයතාව, කෝඩ් පරීක්ෂණ සහ නිවැරදි කිරීමේ බලතල පසිඳු දනංජයගේ (Pasiya Max) අතිරේක නිබන්ධනයි.
-        </p>
+    <!-- API Key Setup Panel -->
+    <div id="setup-panel" class="col-span-12 bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-500/50 rounded-3xl p-6 shadow-2xl">
+      <div class="flex items-center gap-3 mb-4">
+        <i data-lucide="key" class="w-5 h-5 text-amber-400"></i>
+        <h3 class="text-lg font-bold text-white font-display">🔑 Gemini API Key Setup</h3>
+        <span id="setup-status" class="text-xs bg-red-500/20 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/30 font-mono">Required</span>
       </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-6 border-t border-amber-500/20">
-        <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
-          <h4 class="text-[10px] font-bold text-amber-500 uppercase tracking-wider mb-1">Target GitHub Repo</h4>
-          <p class="text-xs font-mono text-amber-300 font-bold">Pasiya-Max-AI-OS-06 / index.html</p>
-        </div>
-        <div class="p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
-          <h4 class="text-[10px] font-bold text-amber-500 uppercase tracking-wider mb-1">Status: With Error Handling</h4>
-          <p class="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1.5">
-            Auto-Repair Enabled <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- System Vitals -->
-    <div class="col-span-12 md:col-span-4 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 flex flex-col justify-between shadow-2xl">
-      <div>
-        <div class="flex items-center justify-between mb-4 border-b border-amber-500/10 pb-3">
-          <span class="text-xs font-bold text-amber-500 uppercase tracking-widest font-mono">System Health Check</span>
-          <span id="health-badge" class="text-[10px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono font-bold">OPTIMAL</span>
-        </div>
-        <div class="space-y-3 font-sans font-semibold">
-          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
-            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-amber-400"></i> Storage Status</span>
-            <span class="font-mono text-xs text-amber-300 font-bold" id="storage-status">Active</span>
-          </div>
-          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
-            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="database" class="w-4 h-4 text-emerald-400"></i> API Status</span>
-            <span class="font-mono text-xs text-emerald-400 font-bold">Mocked Safe</span>
-          </div>
-          <div class="flex justify-between items-center p-3 bg-[#0a0805] rounded-xl border border-amber-500/10">
-            <span class="text-xs text-stone-300 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Error Handler</span>
-            <span class="font-mono text-[10px] text-amber-300 font-bold" id="error-handler-status">Enabled</span>
-          </div>
-        </div>
-      </div>
-      <div class="pt-4 mt-4 border-t border-amber-500/15 text-right">
-        <button onclick="runAutoRepair()" class="text-xs bg-[#1f170b] hover:bg-[#2d210f] text-amber-200 px-4 py-1.5 rounded-xl border border-amber-500/30 transition-all flex items-center gap-1.5 ml-auto">
-          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-amber-400"></i> Run Auto-Repair
+      <p class="text-sm text-stone-300 mb-4">
+        ඔබගේ Gemini AI API Key ඇතුළත් කරන්න ស្বយ័ត្តលេខ AI වෙබ් අඩවිය සක්‍රිය කිරීමට:
+      </p>
+      <div class="flex gap-3">
+        <input 
+          type="password" 
+          id="gemini-api-key"
+          placeholder="AIzaSy... (ඔබගේ Gemini API Key)"
+          class="flex-1 bg-[#070503] border border-amber-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 font-mono"
+        />
+        <button onclick="setupGeminiAPI()" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-black font-extrabold rounded-xl text-sm transition-all shadow-lg flex items-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4"></i> සක්‍රිය කරන්න
         </button>
       </div>
     </div>
 
-    <!-- AI Chat Assistant (SIMPLIFIED) -->
-    <div class="col-span-12 lg:col-span-8 bg-[#131008] border border-amber-500/25 rounded-3xl p-5 flex flex-col justify-between shadow-2xl min-h-[500px]">
-      <div class="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-3 shrink-0">
-        <div class="flex items-center gap-2.5">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0">
-            <i data-lucide="bot" class="w-5 h-5 text-amber-400"></i>
+    <!-- Main Chat Panel -->
+    <div class="col-span-12 lg:col-span-8 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 shadow-2xl flex flex-col justify-between min-h-[600px]">
+      <div class="flex items-center justify-between border-b border-amber-500/20 pb-4 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+            <i data-lucide="bot" class="w-6 h-6 text-amber-400"></i>
           </div>
           <div>
-            <h3 class="text-sm font-bold text-white flex items-center gap-1.5 font-display text-glow">
-              <span id="bot-display-name">Pasiya AI Assistant</span>
-              <span class="text-[9px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold border border-amber-500/20">FIXED</span>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 font-display">
+              <span id="bot-name">Pasiya AI Assistant</span>
+              <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono border border-emerald-500/30" id="bot-status">READY</span>
             </h3>
-            <p class="text-[11px] text-stone-400 font-sans font-medium">
-              පසිඳු දනංජය (Pasiya Max) ගේ නිල සහායකයා සමඟ සජීවීව කතා කරන්න
-            </p>
+            <p class="text-[11px] text-stone-400">පසිඳු දනංජයගේ නිල AI සහායකයා</p>
           </div>
         </div>
-        <div class="flex items-center gap-1.5 text-[10px] text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
-          <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> Error Protected
-        </div>
+        <button onclick="clearChatHistory()" class="text-xs text-amber-400 hover:text-amber-300 px-3 py-1 rounded border border-amber-500/30 transition-all flex items-center gap-1">
+          <i data-lucide="trash-2" class="w-3 h-3"></i> Clear
+        </button>
       </div>
 
-      <div class="flex-1 min-h-[280px] max-h-[320px] overflow-y-auto bg-[#070503] border border-amber-500/10 rounded-2xl p-4 space-y-3 font-sans text-xs scrollbar-thin mb-3">
+      <!-- Chat Messages -->
+      <div id="chat-container" class="flex-1 overflow-y-auto bg-[#070503] border border-amber-500/10 rounded-2xl p-4 space-y-3 mb-4 scrollbar-thin">
         <div class="flex items-start gap-2.5">
-          <div class="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
+          <div class="w-6 h-6 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center flex-shrink-0">
             <i data-lucide="bot" class="w-3.5 h-3.5 text-amber-400"></i>
           </div>
-          <div class="p-2.5 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[85%] leading-relaxed space-y-1 shadow-sm">
-            <p class="font-bold text-amber-400 text-[10px] uppercase tracking-wider">Pasiya AI Assistant</p>
-            <p class="text-xs font-bold">ආයුබෝවන්! මම පසිඳු දනංජය (Pasiya Max) ගේ නිල AI සහායකයා වෙමි! 🇱🇰✨</p>
-            <p class="text-[11px] text-stone-400">මෙම පද්ධතිය දෙන්න නිවැරදි කර ඇති අතර, ස්වයංක්‍රීය දෝෂ හඳුනාගැනීම සඳහා සකසා ඇත.</p>
+          <div class="p-3 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[85%] leading-relaxed shadow-sm">
+            <p class="text-xs font-bold text-amber-400">Pasiya AI</p>
+            <p class="text-sm mt-1">ආයුබෝවන්! මම Pasiya AI. ඔබගේ Gemini API Key සක්‍රිය කරගන්න ඉහළින්...</p>
           </div>
         </div>
-        <div id="chat-messages" class="space-y-2"></div>
+        <div id="chat-messages"></div>
       </div>
 
+      <!-- Input Area -->
       <div class="flex gap-2">
         <input 
           type="text" 
-          id="chat-user-input"
-          onkeypress="handleChatEnter(event)"
-          placeholder="Pasiya AI ගෙන් ඕනෑම දෙයක් අහන්න..." 
-          class="flex-1 bg-[#070503] border border-amber-500/20 rounded-xl px-4 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 placeholder:text-stone-600 font-sans"
+          id="chat-input"
+          onkeypress="if(event.key==='Enter') sendMessage()"
+          placeholder="Pasiya AI ගෙන් අහන්න..."
+          class="flex-1 bg-[#070503] border border-amber-500/20 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 placeholder:text-stone-600 font-sans"
         />
         <button 
-          onclick="sendChatMessageSafe()"
-          class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-xs transition-all shadow-lg"
-        >
-          <i data-lucide="send" class="w-3.5 h-3.5"></i> යවන්න
+          onclick="sendMessage()"
+          class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-sm transition-all shadow-lg flex items-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i> යවන්න
         </button>
       </div>
     </div>
 
-    <!-- Bug Scanner & Fixer -->
-    <div class="col-span-12 lg:col-span-4 bg-[#131008] border border-amber-500/25 rounded-3xl p-5 shadow-2xl flex flex-col justify-between">
+    <!-- Control Panel -->
+    <div class="col-span-12 lg:col-span-4 bg-[#131008] border border-amber-500/25 rounded-3xl p-6 shadow-2xl space-y-4">
       <div>
-        <div class="flex items-center justify-between border-b border-amber-500/10 pb-3 mb-4">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-              <i data-lucide="terminal" class="w-4 h-4 text-amber-400"></i>
-            </div>
-            <div>
-              <h3 class="text-sm font-bold text-white flex items-center gap-1.5 font-display text-glow">
-                Code Error Scanner
-              </h3>
-              <p class="text-[10px] text-stone-400 font-bold">නොමිලේ බග් පරීක්ෂක</p>
-            </div>
+        <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+          <i data-lucide="sliders" class="w-4 h-4 text-amber-400"></i> Bot Customization
+        </h3>
+        
+        <div class="space-y-3">
+          <!-- Bot Name -->
+          <div>
+            <label class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">Bot Name</label>
+            <input 
+              type="text"
+              id="custom-bot-name"
+              value="Pasiya AI"
+              oninput="updateBotName()"
+              class="w-full bg-[#070503] border border-amber-500/20 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400"
+            />
           </div>
-          <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono font-bold border border-emerald-500/20">AUTO</span>
-        </div>
 
-        <textarea 
-          id="bug-code-input" 
-          placeholder="Your HTML/CSS/JSON code here..." 
-          class="w-full h-24 bg-[#070503] border border-amber-500/20 rounded-xl p-3 text-xs font-mono text-amber-300 focus:outline-none focus:border-amber-400 resize-none scrollbar-thin"
-        ></textarea>
+          <!-- Bot Tone -->
+          <div>
+            <label class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">Bot Tone</label>
+            <select id="bot-tone" onchange="updateBotTone()" class="w-full bg-[#070503] border border-amber-500/20 rounded-lg px-3 py-2 text-xs text-stone-300 focus:outline-none focus:border-amber-400">
+              <option value="helpful">🌟 Helpful Standard</option>
+              <option value="technical">💻 Technical Expert</option>
+              <option value="friendly">😊 Friendly Buddy</option>
+              <option value="formal">📋 Formal Assistant</option>
+              <option value="creative">🎨 Creative Thinker</option>
+            </select>
+          </div>
 
-        <div id="bug-scan-output" class="hidden mt-3 p-3 bg-[#0a0805] border border-emerald-500/20 rounded-xl text-[11px] font-mono">
-          <p class="text-emerald-400 font-bold mb-1">✓ No errors detected!</p>
-          <p id="bug-details" class="text-stone-300 text-[10px]"></p>
+          <!-- Language -->
+          <div>
+            <label class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">Language</label>
+            <select id="bot-language" onchange="updateLanguage()" class="w-full bg-[#070503] border border-amber-500/20 rounded-lg px-3 py-2 text-xs text-stone-300 focus:outline-none focus:border-amber-400">
+              <option value="sinhala">🇱🇰 Sinhala</option>
+              <option value="english">🇬🇧 English</option>
+              <option value="mixed">🔄 Mixed</option>
+            </select>
+          </div>
+
+          <!-- Temperature -->
+          <div>
+            <label class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">Creativity Level: <span id="temp-value">0.7</span></label>
+            <input 
+              type="range"
+              id="temperature"
+              min="0"
+              max="2"
+              step="0.1"
+              value="0.7"
+              oninput="document.getElementById('temp-value').innerText = this.value"
+              class="w-full"
+            />
+          </div>
         </div>
       </div>
 
-      <div class="flex justify-between items-center mt-4 pt-3 border-t border-amber-500/10">
-        <button onclick="clearBugScanner()" class="text-[11px] text-stone-500 hover:text-stone-400 font-sans font-bold cursor-pointer">
-          Clear
-        </button>
-        <button 
-          onclick="runBugScannerSafe()" 
-          class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-xl text-xs transition-all shadow-md flex items-center gap-1.5"
-        >
-          <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Scan Now
-        </button>
+      <div class="border-t border-amber-500/20 pt-4">
+        <h4 class="text-xs font-bold text-amber-500 mb-2 uppercase">Quick Actions</h4>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="quickPrompt('social')" class="text-xs bg-[#0a0805] hover:bg-[#1a140b] border border-amber-500/30 text-amber-300 px-3 py-2 rounded-lg transition-all">
+            📲 Social Links
+          </button>
+          <button onclick="quickPrompt('owner')" class="text-xs bg-[#0a0805] hover:bg-[#1a140b] border border-amber-500/30 text-amber-300 px-3 py-2 rounded-lg transition-all">
+            👤 About Owner
+          </button>
+          <button onclick="quickPrompt('help')" class="text-xs bg-[#0a0805] hover:bg-[#1a140b] border border-amber-500/30 text-amber-300 px-3 py-2 rounded-lg transition-all">
+            ❓ Help
+          </button>
+          <button onclick="quickPrompt('features')" class="text-xs bg-[#0a0805] hover:bg-[#1a140b] border border-amber-500/30 text-amber-300 px-3 py-2 rounded-lg transition-all">
+            ⚙️ Features
+          </button>
+        </div>
       </div>
-    </div>
+    </main>
 
+    <!-- Status Bar -->
+    <footer class="col-span-12 flex items-center justify-between py-4 text-xs text-stone-500 border-t border-amber-500/15 bg-[#0a0805]/50 rounded-lg px-4">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full animate-pulse" id="status-dot" style="background: #ef4444;"></span>
+          <span id="status-text">API Key Required</span>
+        </div>
+      </div>
+      <div class="text-[9px] font-mono text-stone-600">
+        © Pasiya Max Golden AI | Built with ❤️
+      </div>
+    </footer>
   </main>
 
-  <!-- Footer -->
-  <footer class="flex flex-col sm:flex-row items-center justify-between py-6 text-xs text-stone-500 border-t border-amber-500/15 gap-4 mt-auto">
-    <div class="flex items-center gap-2 bg-[#14110b] px-3.5 py-1.5 rounded-full border border-amber-500/20">
-      <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-      <span class="text-[10px] font-bold tracking-wider text-amber-300 uppercase font-mono">
-        PASIYA AI ACTIVE WITH ERROR PROTECTION
-      </span>
-    </div>
-  </footer>
-
-  <!-- Toast Notification -->
-  <div id="toast-notif" class="fixed bottom-6 right-6 z-50 bg-[#1f170b] border border-amber-500 text-amber-200 font-sans text-xs px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 translate-y-20 opacity-0 transition-all">
-    <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 animate-bounce"></i>
-    <span id="toast-text" class="font-bold">Action completed successfully!</span>
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#1f170b] border border-amber-500 text-amber-200 font-sans text-xs px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 translate-y-20 opacity-0 transition-all pointer-events-none">
+    <i data-lucide="check-circle" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+    <span id="toast-message">Success!</span>
   </div>
 
   <script>
-    // ===== ERROR HANDLING SYSTEM =====
-    const errorLog = [];
-    const MAX_ERRORS = 50;
+    // ===== GLOBAL STATE =====
+    let apiKey = localStorage.getItem('gemini_api_key') || '';
+    let isApiReady = false;
+    let chatHistory = [];
+    let botConfig = {
+      name: 'Pasiya AI',
+      tone: 'helpful',
+      language: 'sinhala',
+      temperature: 0.7
+    };
 
-    function logError(title, message, severity = 'warn') {
-      const error = {
-        title,
-        message,
-        severity,
-        timestamp: new Date().toISOString()
-      };
-      
-      errorLog.push(error);
-      if (errorLog.length > MAX_ERRORS) errorLog.shift();
-      
-      console.warn(`[${severity.toUpperCase()}] ${title}:`, message);
-      
-      if (severity === 'error') {
-        showErrorNotification(title, message);
+    const toneInstructions = {
+      helpful: 'You are a helpful, friendly assistant.',
+      technical: 'You are a technical expert with deep knowledge.',
+      friendly: 'You are a friendly, casual companion.',
+      formal: 'You are a formal, professional assistant.',
+      creative: 'You are a creative thinker with imaginative ideas.'
+    };
+
+    const prompts = {
+      social: 'පසිඳු දනංජයගේ සමාජ මාධ්‍ය ජාල සබැඳි සහ ඊමේල් ලිපිනය දෙන්න',
+      owner: 'පසිඳු දනංජය (Pasiya Max) ගැන කවුද? කිසිම තොරතුරු ලබා දෙන්න',
+      help: 'මම කුමක් කල හැකි ද? ඔබ සහිතව කරන්න විය හැකි දේ පැහැදිලි කරන්න',
+      features: 'Pasiya AI වලින් ඇති විශේෂාංග ගැන කියන්න'
+    };
+
+    // ===== API SETUP =====
+    async function setupGeminiAPI() {
+      const keyInput = document.getElementById('gemini-api-key');
+      const key = keyInput.value.trim();
+
+      if (!key || !key.startsWith('AIza')) {
+        showToast('Invalid API Key format!');
+        return;
+      }
+
+      localStorage.setItem('gemini_api_key', key);
+      apiKey = key;
+      isApiReady = true;
+
+      document.getElementById('setup-panel').classList.add('hidden');
+      document.getElementById('setup-status').innerHTML = '<span class="text-emerald-300">✓ Active</span>';
+      document.getElementById('status-dot').style.background = '#22c55e';
+      document.getElementById('status-text').innerText = 'Gemini AI Connected';
+
+      showToast('✓ API Key Saved & Active!');
+      logSystem('Gemini API initialized successfully');
+    }
+
+    // ===== CHAT FUNCTIONS =====
+    async function sendMessage() {
+      if (!isApiReady) {
+        showToast('Please setup API Key first');
+        return;
+      }
+
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      // Add user message
+      addMessage('user', text);
+      input.value = '';
+
+      // Show typing indicator
+      showTyping();
+
+      try {
+        const response = await callGeminiAPI(text);
+        removeTyping();
+        addMessage('bot', response);
+      } catch (error) {
+        removeTyping();
+        addMessage('bot', '❌ Error: ' + error.message);
       }
     }
 
-    function showErrorNotification(title, message) {
-      const notif = document.getElementById('error-notification');
-      const titleEl = document.getElementById('error-title');
-      const msgEl = document.getElementById('error-message');
+    async function callGeminiAPI(userMessage) {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
       
-      if (titleEl) titleEl.innerText = title;
-      if (msgEl) msgEl.innerText = message;
-      if (notif) {
-        notif.classList.remove('hidden');
-        setTimeout(() => {
-          if (!notif.classList.contains('hidden')) {
-            dismissError();
+      const systemPrompt = `You are "${botConfig.name}", ${toneInstructions[botConfig.tone]}.
+Language preference: ${botConfig.language === 'sinhala' ? 'Sinhala (primarily)' : botConfig.language === 'english' ? 'English' : 'Mix of Sinhala and English'}.
+${botConfig.language !== 'english' ? 'Add Sinhala greetings and cultural touches.' : ''}
+You are the official AI assistant of Pasiya Max (පසිඳු දනංජය), a content creator.`;
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: userMessage }]
+          }],
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          generationConfig: {
+            temperature: parseFloat(botConfig.temperature),
+            maxOutputTokens: 500
           }
-        }, 5000);
+        })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || 'API Error');
       }
+
+      const data = await response.json();
+      return data.candidates[0].content.parts[0].text || 'No response';
     }
 
-    function dismissError() {
-      const notif = document.getElementById('error-notification');
-      if (notif) notif.classList.add('hidden');
+    // ===== UI HELPERS =====
+    function addMessage(role, text) {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = 'flex items-start gap-2.5';
+
+      const colors = role === 'user' 
+        ? { icon: 'bg-blue-500/20 text-blue-400', msg: 'bg-blue-950/40' }
+        : { icon: 'bg-amber-500/20 text-amber-400', msg: 'bg-[#17130b]' };
+
+      div.innerHTML = `
+        <div class="w-6 h-6 rounded ${colors.icon} border border-current flex items-center justify-center flex-shrink-0">
+          <i data-lucide="${role === 'user' ? 'user' : 'bot'}" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="p-3 ${colors.msg} border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[80%] leading-relaxed shadow-sm">
+          <p class="text-xs font-bold text-amber-400 mb-1">${role === 'user' ? 'You' : botConfig.name}</p>
+          <p class="text-sm whitespace-pre-wrap">${text}</p>
+        </div>
+      `;
+
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      if (window.lucide) lucide.createIcons();
     }
 
-    // ===== AUTO-REPAIR SYSTEM =====
-    async function runAutoRepair() {
-      const panel = document.getElementById('repair-panel');
-      const status = document.getElementById('repair-status');
-      const progress = document.getElementById('repair-progress');
+    function showTyping() {
+      const container = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.id = 'typing-indicator';
+      div.className = 'flex items-start gap-2.5';
+      div.innerHTML = `
+        <div class="w-6 h-6 rounded bg-amber-500/20 text-amber-400 border border-current flex items-center justify-center flex-shrink-0">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="p-3 bg-[#17130b] border border-amber-500/10 rounded-r-xl rounded-bl-xl">
+          <div class="bot-typing"><span></span><span></span><span></span></div>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function removeTyping() {
+      const typing = document.getElementById('typing-indicator');
+      if (typing) typing.remove();
+    }
+
+    function updateBotName() {
+      const name = document.getElementById('custom-bot-name').value || 'Pasiya AI';
+      botConfig.name = name;
+      document.getElementById('bot-name').innerText = name;
+      localStorage.setItem('bot_name', name);
+    }
+
+    function updateBotTone() {
+      botConfig.tone = document.getElementById('bot-tone').value;
+      localStorage.setItem('bot_tone', botConfig.tone);
+    }
+
+    function updateLanguage() {
+      botConfig.language = document.getElementById('bot-language').value;
+      localStorage.setItem('bot_language', botConfig.language);
+    }
+
+    function clearChatHistory() {
+      document.getElementById('chat-messages').innerHTML = '';
+      chatHistory = [];
+      showToast('Chat history cleared');
+    }
+
+    function quickPrompt(type) {
+      const input = document.getElementById('chat-input');
+      input.value = prompts[type] || '';
+      input.focus();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
       
-      if (panel) panel.classList.remove('hidden');
-      
-      const repairs = [
-        { name: 'Storage Validation', time: 800 },
-        { name: 'Error Handler Check', time: 600 },
-        { name: 'DOM Integrity Scan', time: 700 },
-        { name: 'Event Listener Repair', time: 500 }
-      ];
-      
-      let currentProgress = 0;
-      
-      for (let repair of repairs) {
-        if (status) status.innerText = repair.name + '...';
-        
-        await new Promise(resolve => setTimeout(resolve, repair.time));
-        
-        currentProgress += 25;
-        if (progress) progress.style.width = currentProgress + '%';
-      }
-      
-      if (panel) panel.classList.add('hidden');
-      if (status) status.innerText = 'Complete!';
-      
-      showToast('✓ Auto-repair completed successfully!');
-      logError('Auto-Repair', 'Scan complete - all systems nominal', 'info');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
     }
 
-    // ===== SAFE FUNCTION WRAPPERS =====
-    function sendChatMessageSafe() {
-      try {
-        const input = document.getElementById('chat-user-input');
-        if (!input) throw new Error('Chat input not found');
-        
-        const text = input.value.trim();
-        if (!text) return;
-        
-        // Add user message
-        appendMessageSafe('user', text);
-        input.value = '';
-        
-        // Simulate bot response
-        appendMessageSafe('bot', 'ස්තූතියි ඔබගේ පණිවිඩයට! 🤖');
-        showToast('Message sent!');
-        
-      } catch (err) {
-        logError('Chat Error', err.message, 'error');
-      }
+    function logSystem(msg) {
+      console.log('[Pasiya AI]', msg);
     }
 
-    function appendMessageSafe(role, text) {
-      try {
-        const container = document.getElementById('chat-messages');
-        if (!container) throw new Error('Chat container not found');
-        
-        const div = document.createElement('div');
-        div.className = 'flex items-start gap-2.5';
-        
-        const iconColor = role === 'user' ? 'bg-blue-500/20 text-blue-400' : 'bg-amber-500/20 text-amber-400';
-        const bgColor = role === 'user' ? 'bg-[#1a1a2e]' : 'bg-[#17130b]';
-        
-        div.innerHTML = `
-          <div class="w-6 h-6 rounded ${iconColor} border border-current flex items-center justify-center shrink-0">
-            <i data-lucide="${role === 'user' ? 'user' : 'bot'}" class="w-3.5 h-3.5"></i>
-          </div>
-          <div class="p-2.5 ${bgColor} border border-amber-500/10 rounded-r-xl rounded-bl-xl text-stone-200 max-w-[85%] leading-relaxed shadow-sm">
-            <p class="text-[11px] font-bold">${text}</p>
-          </div>
-        `;
-        
-        container.appendChild(div);
-        container.scrollTop = container.scrollHeight;
-        
-        if (window.lucide) lucide.createIcons();
-        
-      } catch (err) {
-        logError('Message Append Error', err.message, 'error');
-      }
-    }
-
-    function handleChatEnter(event) {
-      if (event.key === 'Enter') sendChatMessageSafe();
-    }
-
-    function runBugScannerSafe() {
-      try {
-        const input = document.getElementById('bug-code-input');
-        const output = document.getElementById('bug-scan-output');
-        const details = document.getElementById('bug-details');
-        
-        if (!input) throw new Error('Bug input not found');
-        
-        const code = input.value.trim();
-        if (!code) {
-          showToast('කරුණාකර කෝඩ් එක ඇතුළත් කරන්න');
-          return;
-        }
-        
-        // Simple validation
-        const openBrackets = (code.match(/[{(\[]/g) || []).length;
-        const closeBrackets = (code.match(/[})\]]/g) || []).length;
-        
-        if (output) output.classList.remove('hidden');
-        
-        if (openBrackets === closeBrackets) {
-          if (details) details.innerText = 'All brackets balanced ✓';
-          showToast('No errors found!');
-        } else {
-          if (details) details.innerText = `Bracket mismatch: ${openBrackets} open, ${closeBrackets} close`;
-          showToast('Issues detected!');
-        }
-        
-      } catch (err) {
-        logError('Bug Scanner Error', err.message, 'error');
-      }
-    }
-
-    function clearBugScanner() {
-      const input = document.getElementById('bug-code-input');
-      const output = document.getElementById('bug-scan-output');
-      if (input) input.value = '';
-      if (output) output.classList.add('hidden');
-    }
-
-    // ===== THEME TOGGLE =====
     function toggleTheme() {
       const html = document.documentElement;
-      const isDark = html.classList.contains('dark');
-      
-      if (isDark) {
+      html.classList.toggle('dark');
+      html.classList.toggle('light');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    // ===== INITIALIZATION =====
+    window.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      const html = document.documentElement;
+      if (savedTheme === 'light') {
         html.classList.remove('dark');
         html.classList.add('light');
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.classList.add('dark');
-        html.classList.remove('light');
-        localStorage.setItem('theme', 'dark');
       }
-    }
 
-    // ===== TOAST NOTIFICATION =====
-    function showToast(text) {
-      try {
-        const toast = document.getElementById('toast-notif');
-        const toastText = document.getElementById('toast-text');
-        if (toastText) toastText.innerText = text;
-        
-        if (toast) {
-          toast.classList.remove('translate-y-20', 'opacity-0');
-          toast.classList.add('translate-y-0', 'opacity-100');
-          
-          setTimeout(() => {
-            toast.classList.remove('translate-y-0', 'opacity-100');
-            toast.classList.add('translate-y-20', 'opacity-0');
-          }, 3000);
-        }
-      } catch (err) {
-        console.error('Toast error:', err);
+      // Load saved config
+      botConfig.name = localStorage.getItem('bot_name') || 'Pasiya AI';
+      botConfig.tone = localStorage.getItem('bot_tone') || 'helpful';
+      botConfig.language = localStorage.getItem('bot_language') || 'sinhala';
+
+      document.getElementById('custom-bot-name').value = botConfig.name;
+      document.getElementById('bot-tone').value = botConfig.tone;
+      document.getElementById('bot-language').value = botConfig.language;
+
+      if (apiKey && apiKey.startsWith('AIza')) {
+        isApiReady = true;
+        document.getElementById('setup-panel').classList.add('hidden');
+        document.getElementById('setup-status').innerHTML = '<span class="text-emerald-300">✓ Active</span>';
+        document.getElementById('status-dot').style.background = '#22c55e';
+        document.getElementById('status-text').innerText = 'Gemini AI Connected';
+        document.getElementById('bot-status').innerText = 'ACTIVE';
       }
-    }
 
-    // ===== INITIALIZE =====
-    document.addEventListener('DOMContentLoaded', function() {
-      try {
-        // Load theme preference
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        const html = document.documentElement;
-        
-        if (savedTheme === 'light') {
-          html.classList.remove('dark');
-          html.classList.add('light');
-        } else {
-          html.classList.add('dark');
-          html.classList.remove('light');
-        }
-        
-        // Initialize Lucide
-        if (window.lucide) lucide.createIcons();
-        
-        logError('Initialization', 'System initialized with error protection enabled', 'info');
-        showToast('Pasiya AI Ready! ✓');
-        
-      } catch (err) {
-        logError('Initialization Error', err.message, 'error');
-      }
-    });
-
-    // Global error handler
-    window.addEventListener('error', function(event) {
-      logError('Uncaught Error', event.message, 'error');
-    });
-
-    window.addEventListener('unhandledrejection', function(event) {
-      logError('Unhandled Promise', event.reason, 'error');
+      if (window.lucide) lucide.createIcons();
+      logSystem('Pasiya AI OS 06 Initialized');
     });
   </script>
 </body>
